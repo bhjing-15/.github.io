@@ -39,18 +39,9 @@
 	
 					<ul>
 						<li class="file">
-							<a href="/2021/01/01/ReadMe/">
+							<a href="/2021/01/01/0_ReadMe/">
 								<i class="fa fa-file"></i>
-								ReadMe
-							</a>
-						</li>
-					</ul>
-	
-					<ul>
-						<li class="file active">
-							<a href="/2021/03/02/★常用命令/">
-								<i class="fa fa-file"></i>
-								★常用命令
+								0_ReadMe
 							</a>
 						</li>
 					</ul>
@@ -59,16 +50,36 @@
 						<li class="directory">
 							<a href="#" class="directory">
 								<i class="fa fa-folder"></i>
-								东塔笔记
+								1_东塔
+							</a>
+							
+					<ul>
+						<li class="directory">
+							<a href="#" class="directory">
+								<i class="fa fa-folder"></i>
+								靶场
 							</a>
 							
 					<ul>
 						<li class="file">
-							<a href="/2021/11/02/东塔笔记/20201102【笔记】Docker/">
+							<a href="/2021/11/02/1_东塔/靶场/20201102【笔记】Docker/">
 								<i class="fa fa-file"></i>
 								20201102【笔记】Docker
 							</a>
 						</li>
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2021/11/03/1_东塔/靶场/20201103【笔记】Wireshark/">
+								<i class="fa fa-file"></i>
+								20201103【笔记】Wireshark
+							</a>
+						</li>
+					</ul>
+	
+						</li>
+						
 					</ul>
 	
 						</li>
@@ -79,7 +90,7 @@
 						<li class="directory">
 							<a href="#" class="directory">
 								<i class="fa fa-folder"></i>
-								漏洞
+								2_漏洞
 							</a>
 							
 					<ul>
@@ -91,7 +102,7 @@
 							
 					<ul>
 						<li class="file">
-							<a href="/2020/11/27/漏洞/中间件/ThinkAdmin6_DT&FR/">
+							<a href="/2020/11/27/2_漏洞/中间件/ThinkAdmin6_DT&FR/">
 								<i class="fa fa-file"></i>
 								ThinkAdmin6_DT&FR
 							</a>
@@ -111,7 +122,7 @@
 							
 					<ul>
 						<li class="file">
-							<a href="/2021/01/20/漏洞/操作系统/win10_BSOD/">
+							<a href="/2021/01/20/2_漏洞/操作系统/win10_BSOD/">
 								<i class="fa fa-file"></i>
 								win10_BSOD
 							</a>
@@ -124,6 +135,55 @@
 	
 						</li>
 						
+					</ul>
+	
+					<ul>
+						<li class="directory">
+							<a href="#" class="directory">
+								<i class="fa fa-folder"></i>
+								3_无线
+							</a>
+							
+					<ul>
+						<li class="file">
+							<a href="/2021/02/26/3_无线/CMCC默认账号密码/">
+								<i class="fa fa-file"></i>
+								CMCC默认账号密码
+							</a>
+						</li>
+					</ul>
+	
+						</li>
+						
+					</ul>
+	
+					<ul>
+						<li class="directory">
+							<a href="#" class="directory">
+								<i class="fa fa-folder"></i>
+								5_本人
+							</a>
+							
+					<ul>
+						<li class="file">
+							<a href="/2021/03/02/5_本人/简历/">
+								<i class="fa fa-file"></i>
+								简历
+							</a>
+						</li>
+					</ul>
+	
+						</li>
+						
+					</ul>
+	
+					<ul>
+						<li class="file active">
+							<a href="/2021/03/02/★常用命令/">
+								<i class="fa fa-file"></i>
+								★常用命令
+							</a>
+						</li>
 					</ul>
 	
 </div>
@@ -163,7 +223,7 @@
 </div>
 
 <div id="article">
-	<h1 id="ACCESS"><a href="#ACCESS" class="headerlink" title="ACCESS"></a>ACCESS</h1><h2 id="数据库结构"><a href="#数据库结构" class="headerlink" title="数据库结构"></a>数据库结构</h2><p>ACCESS没有数据库，只有一张一张的表</p>
+	<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h2 id="数据库结构"><a href="#数据库结构" class="headerlink" title="数据库结构"></a>数据库结构</h2><p>ACCESS没有数据库，只有一张一张的表</p>
 <p>拿SQLMAP跑，只能用字典爆破表名和列名</p>
 <p>select [列名],[列名] from [表名]</p>
 <p>?id=1 union select 1,2,3 from admin            //注入时一定要加表名</p>
@@ -308,141 +368,7 @@ intitle:后台 site:xxx.com
 <p>hexo g – hexo generate    //生成静态文章</p>
 <p>hexo d – hexo deploy    //部署文章</p>
 <hr>
-<h1 id="kali"><a href="#kali" class="headerlink" title="kali"></a>kali</h1><h2 id="常用命令（泛Linux）"><a href="#常用命令（泛Linux）" class="headerlink" title="常用命令（泛Linux）"></a>常用命令（泛Linux）</h2><p><strong>查看系统版本</strong></p>
-<pre><code>###kali###
-grep Version /etc/os-release
-
-###Ubuntu###
-cat /proc/version
-</code></pre>
-<p><img src="https://i.loli.net/2021/02/23/TC82mXZ7WIBO3Fe.png"></p>
-<p><strong>ping</strong></p>
-<p>ping [IP] -c 3    //ping 3次</p>
-<p><strong>远程连接</strong></p>
-<pre><code>&gt; rdesktop &lt;IP&gt;
-</code></pre>
-<p><strong>查看某一端口的使用情况</strong></p>
-<pre><code>&gt;lsof -i:8000
-</code></pre>
-<p><img src="https://i.loli.net/2021/02/26/aoWvDKtVyYSBXLM.png" alt="image-20210226144101873"></p>
-<p><strong>查看端口、PID、进程</strong></p>
-<pre><code>&gt; netstat -pantu
-</code></pre>
-<p><strong>查看历史命令</strong></p>
-<pre><code>&gt; history    //查看历史命令
-&gt; history -c //清除历史命令
-
-在zsh中使用history -c 会报错，使用
-&gt; cat .zsh_history 查看历史命令文件内容
-&gt; rm .zsh_hhistory 删除历史命令
-</code></pre>
-<p><strong>查看所有用户</strong></p>
-<p>三种方法</p>
-<pre><code>1.使用/etc/passwd文件
-&gt; cat /etc/passwd
-    你可以使用 awk 或 cut 命令仅打印出 Linux 系统中所有用户的用户名列表。显示的结果是相同的。
-    &gt; awk -F&#39;:&#39; &#39;&#123; print $1&#125;&#39; /etc/passwd
-    或者
-    &gt; cut -d: -f1 /etc/passwd
-
-2.使用getent命令
-&gt; getent passwd
-    getent 命令显示类似于 /etc/passwd 文件的用户详细信息，它将每个用户详细信息显示为包含七个字段的单行。
-
-3.使用compgen
-&gt; compgen -u
-    compgen 是 bash 的内置命令，-u只显示用户名列表。
-</code></pre>
-<h3 id="shadow文件"><a href="#shadow文件" class="headerlink" title="shadow文件"></a>shadow文件</h3><p>/etc/passwd文件保存了系统中所有用户信息（除密码）</p>
-<pre><code>【格式】用户名：密码占位符：UID：groupID：用户信息：家目录：shell类型（/sbin/nologin 表示该用户无法登录系统）
-【eg】root:x:0:0:root:/root:/usr/bin/zsh
-</code></pre>
-<p>/etc/shadow文件保存了系统中所有用户的密码信息</p>
-<pre><code>【格式】
-用户名：加密密码：
-最后一次修改时间：最小修改时间间隔：
-密码有效期：密码需要变更前的警告天数：
-密码过期后的宽限时间：账号失效时间：保留字段
-【eg】root:$6$j42TBSODDYWE2EOi$bfpfo2uvj4QZY4nWepxMy/9Qdm7wZdU8ldka857sgL1o5e81/zl6kpxdmQ/UFZiu6a9/0b5fF1G3K87MxQDPW0:
-18599:0:
-99999:7:
-::
-</code></pre>
-<h3 id="ftp"><a href="#ftp" class="headerlink" title="ftp"></a>ftp</h3><p>ftp &lt;目标机IP&gt;</p>
-<p>会提示输入用户名、密码</p>
-<p><img src="https://i.loli.net/2021/02/26/zXTS7Ze9aiEWwJA.png" alt="image-20201218105801156"></p>
-<p>ftp是一个文件传输服务，设计它的目的就是为了传输文件。它有独立的守护进程，使用20，21两个端口，20是数据链路的端口，21是控制链路的端口。</p>
-<h3 id="sftp"><a href="#sftp" class="headerlink" title="sftp"></a>sftp</h3><p>sftp [用户名]@&lt;目标机IP&gt;</p>
-<p>eg: sftp <a href="mailto:&#x61;&#x64;&#x6d;&#x69;&#110;&#x40;&#x31;&#x39;&#x32;&#x2e;&#x31;&#54;&#x38;&#46;&#x36;&#46;&#49;&#x35;">&#x61;&#x64;&#x6d;&#x69;&#110;&#x40;&#x31;&#x39;&#x32;&#x2e;&#x31;&#54;&#x38;&#46;&#x36;&#46;&#49;&#x35;</a></p>
-<p>sftp也是用来传输文件的，但它的传输是加密的，是ssh服务的一部分，没有单独的守护进程，是ssh服务的一部分，可以看做是ssh服务文件传输方案。和ssh一样，使用22端口。</p>
-<h3 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h3><p>Secure Shell</p>
-<pre><code>ssh [用户名]@[IP]
--p 指定端口
--f 后台运行
--N 不回弹shell，只执行命令
-
--L 本地端口转发 -L [A主机端口]:[C主机IP]:[C服务端口]
--R 远程端口转发 -R [B主机端口]:[A1主机IP]:[A1服务端口]
--D 动态端口转发 -R [A主机端口] + 浏览器SOCKS4/5代理设置
-</code></pre>
-<p>修改配置文件</p>
-<pre><code>路径    /etc/ssh/sshd_config    root权限读写
-cat&gt;&gt;sshd_config //将内容追加到文件结尾
-AllowUsers XXX    //允许XXX用户登录SSH
-
-ctrl + D 退出 //meterpreter里Ctrl + C结束进程重新进
-
-sed -i &#39;$d&#39; sshd_config    //删除最后一行
-
-修改完要重启ssh服务
-service sshd status
-service sshd restart
-
-# 或者
-/etc/initd.d/sshd restart
-</code></pre>
-<h3 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h3><pre><code>不带任何参数时，curl就是发出GET请求
-&gt; curl https://www.example.com
-&gt; curl localhost:80
-</code></pre>
-<h3 id="网卡IP配置"><a href="#网卡IP配置" class="headerlink" title="网卡IP配置"></a>网卡IP配置</h3><p>配置静态IP</p>
-<pre><code>第一步：配IP
-vim /etc/network/interfaces
-
-加入以下内容
-inface eth0 inet static    #设置 eth0 使用默认的静态地址
-address 10.10.10.160   #设置 eth0 的ip 地址
-gateway 10.10.10.2    #配置当前主机的默认网关
-netmask  255.255.255.0   #设置 eth0 的子网掩码
-
-第二步：配DNS
-vim /etc/resolv.conf
-
-加入以下内容
-domain
-nameserver 8.8.8.8
-nameserver 114.114.114.114
-search localdomain
-
-第三步：重启网卡
-ifconfig eth0 down
-ifconfig eth0 up
-</code></pre>
-<p>双网卡配置</p>
-<p><img src="https://i.loli.net/2021/02/26/wYK3mJzBI7McZs5.png" alt="image-20201211095057215"></p>
-<p>两张网卡都有IP</p>
-<p><img src="https://i.loli.net/2021/02/26/ZC2HPgLdRErjikM.png" alt="image-20201211095237732"></p>
-<h3 id="重启网卡"><a href="#重启网卡" class="headerlink" title="重启网卡"></a>重启网卡</h3><pre><code>&gt; systemctl restart network
-或
-&gt; service network-manager restart
-
-###Kali Linux (Debain)###
-&gt; service networking restart
-
-###CentOS 8###
-&gt; nmcli c reload
-</code></pre>
-<h2 id="hydra爆破"><a href="#hydra爆破" class="headerlink" title="hydra爆破"></a>hydra爆破</h2><p><strong>爆破ftp</strong></p>
+<h1 id="kali"><a href="#kali" class="headerlink" title="kali"></a>kali</h1><h2 id="hydra爆破"><a href="#hydra爆破" class="headerlink" title="hydra爆破"></a>hydra爆破</h2><p><strong>爆破ftp</strong></p>
 <p>hydra -l user -P passlist.txt <a href="ftp://192.168.10.121/">ftp://192.168.10.121</a></p>
 <p>hydra ip ftp -L userlist.txt -P passlist.txt -t 线程(默认16) -vV</p>
 <p><strong>爆破MySQL</strong></p>
@@ -508,8 +434,160 @@ searchsploit -p 40871.c    查看漏洞简略信息
 searchsploit -m 40871.c 复制.c文件到当前路径
 </code></pre>
 <hr>
+<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p><strong>查看系统版本</strong></p>
+<pre><code>###kali###
+grep Version /etc/os-release
+
+###Ubuntu###
+cat /proc/version
+</code></pre>
+<p><img src="https://i.loli.net/2021/02/23/TC82mXZ7WIBO3Fe.png"></p>
+<p><strong>ping</strong></p>
+<p>ping [IP] -c 3    //ping 3次</p>
+<p><strong>远程连接</strong></p>
+<pre><code>&gt; rdesktop &lt;IP&gt;
+</code></pre>
+<p><strong>查看某一端口的使用情况</strong></p>
+<pre><code>&gt;lsof -i:8000
+</code></pre>
+<p><img src="https://i.loli.net/2021/02/26/aoWvDKtVyYSBXLM.png" alt="image-20210226144101873"></p>
+<p><strong>查看端口、PID、进程</strong></p>
+<pre><code>&gt; netstat -pantu
+</code></pre>
+<p><strong>查看历史命令</strong></p>
+<pre><code>&gt; history    //查看历史命令
+&gt; history -c //清除历史命令
+
+在zsh中使用history -c 会报错，使用
+&gt; cat .zsh_history 查看历史命令文件内容
+&gt; rm .zsh_history 删除历史命令
+</code></pre>
+<p><strong>查看所有用户</strong></p>
+<p>三种方法</p>
+<pre><code>1.使用/etc/passwd文件
+&gt; cat /etc/passwd
+    你可以使用 awk 或 cut 命令仅打印出 Linux 系统中所有用户的用户名列表。显示的结果是相同的。
+    &gt; awk -F&#39;:&#39; &#39;&#123; print $1&#125;&#39; /etc/passwd
+    或者
+    &gt; cut -d: -f1 /etc/passwd
+
+2.使用getent命令
+&gt; getent passwd
+    getent 命令显示类似于 /etc/passwd 文件的用户详细信息，它将每个用户详细信息显示为包含七个字段的单行。
+
+3.使用compgen
+&gt; compgen -u
+    compgen 是 bash 的内置命令，-u只显示用户名列表。
+</code></pre>
+<h2 id="passwd文件与shadow文件"><a href="#passwd文件与shadow文件" class="headerlink" title="passwd文件与shadow文件"></a>passwd文件与shadow文件</h2><p>/etc/passwd文件保存了系统中所有用户信息（除密码）</p>
+<pre><code>【格式】用户名：密码占位符：UID：groupID：用户信息：家目录：shell类型（/sbin/nologin 表示该用户无法登录系统）
+【eg】root:x:0:0:root:/root:/usr/bin/zsh
+</code></pre>
+<p>/etc/shadow文件保存了系统中所有用户的密码信息</p>
+<pre><code>【格式】
+用户名：加密密码：
+最后一次修改时间：最小修改时间间隔：
+密码有效期：密码需要变更前的警告天数：
+密码过期后的宽限时间：账号失效时间：保留字段
+【eg】root:$6$j42TBSODDYWE2EOi$bfpfo2uvj4QZY4nWepxMy/9Qdm7wZdU8ldka857sgL1o5e81/zl6kpxdmQ/UFZiu6a9/0b5fF1G3K87MxQDPW0:
+18599:0:
+99999:7:
+::
+</code></pre>
+<h2 id="ftp"><a href="#ftp" class="headerlink" title="ftp"></a>ftp</h2><p>ftp &lt;目标机IP&gt;</p>
+<p>会提示输入用户名、密码</p>
+<p><img src="https://i.loli.net/2021/02/26/zXTS7Ze9aiEWwJA.png" alt="image-20201218105801156"></p>
+<p>ftp是一个文件传输服务，设计它的目的就是为了传输文件。它有独立的守护进程，使用20，21两个端口，20是数据链路的端口，21是控制链路的端口。</p>
+<h2 id="sftp"><a href="#sftp" class="headerlink" title="sftp"></a>sftp</h2><p>sftp [用户名]@&lt;目标机IP&gt;</p>
+<p>eg: sftp <a href="mailto:&#x61;&#100;&#109;&#x69;&#x6e;&#x40;&#49;&#x39;&#50;&#x2e;&#49;&#x36;&#x38;&#46;&#x36;&#x2e;&#49;&#53;">&#x61;&#100;&#109;&#x69;&#x6e;&#x40;&#49;&#x39;&#50;&#x2e;&#49;&#x36;&#x38;&#46;&#x36;&#x2e;&#49;&#53;</a></p>
+<p>sftp也是用来传输文件的，但它的传输是加密的，是ssh服务的一部分，没有单独的守护进程，是ssh服务的一部分，可以看做是ssh服务文件传输方案。和ssh一样，使用22端口。</p>
+<h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><p>Secure Shell</p>
+<pre><code>ssh [用户名]@[IP]
+-p 指定端口
+-f 后台运行
+-N 不回弹shell，只执行命令
+
+-L 本地端口转发 -L [A主机端口]:[C主机IP]:[C服务端口]
+-R 远程端口转发 -R [B主机端口]:[A1主机IP]:[A1服务端口]
+-D 动态端口转发 -R [A主机端口] + 浏览器SOCKS4/5代理设置
+</code></pre>
+<p>修改配置文件</p>
+<pre><code>路径    /etc/ssh/sshd_config    root权限读写
+cat&gt;&gt;sshd_config //将内容追加到文件结尾
+AllowUsers XXX    //允许XXX用户登录SSH
+
+ctrl + D 退出 //meterpreter里Ctrl + C结束进程重新进
+
+sed -i &#39;$d&#39; sshd_config    //删除最后一行
+
+修改完要重启ssh服务
+service sshd status
+service sshd restart
+
+# 或者
+/etc/initd.d/sshd restart
+</code></pre>
+<h2 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h2><pre><code>不带任何参数时，curl就是发出GET请求
+&gt; curl https://www.example.com
+&gt; curl localhost:80
+</code></pre>
+<h2 id="网卡IP配置"><a href="#网卡IP配置" class="headerlink" title="网卡IP配置"></a>网卡IP配置</h2><p>配置静态IP</p>
+<pre><code>第一步：配IP
+vim /etc/network/interfaces
+
+加入以下内容
+inface eth0 inet static    #设置 eth0 使用默认的静态地址
+address 10.10.10.160   #设置 eth0 的ip 地址
+gateway 10.10.10.2    #配置当前主机的默认网关
+netmask  255.255.255.0   #设置 eth0 的子网掩码
+
+第二步：配DNS
+vim /etc/resolv.conf
+
+加入以下内容
+domain
+nameserver 8.8.8.8
+nameserver 114.114.114.114
+search localdomain
+
+第三步：重启网卡
+ifconfig eth0 down
+ifconfig eth0 up
+</code></pre>
+<p>双网卡配置</p>
+<p><img src="https://i.loli.net/2021/02/26/wYK3mJzBI7McZs5.png" alt="image-20201211095057215"></p>
+<p>两张网卡都有IP</p>
+<p><img src="https://i.loli.net/2021/02/26/ZC2HPgLdRErjikM.png" alt="image-20201211095237732"></p>
+<h2 id="IP转发位"><a href="#IP转发位" class="headerlink" title="IP转发位"></a>IP转发位</h2><p>查看ipv4.ip_forward的值</p>
+<pre><code>&gt; sysctl -p
+net.ipv4.ip_forward = 0
+或
+&gt; cat /proc/sys/net/ipv4/ip_forward
+0
+</code></pre>
+<p>修改方法</p>
+<pre><code>不同Linux系统命令不同，不一定每个都好使
+方法一：
+&gt; echo 1 &gt; /proc/sys/net/ipv4/ip_forward
+方法二：
+&gt; vim /etc/sysctl.conf
+修改其中的net.ipv4.ip_forward = 1
+（注：vi编辑器命令模式 :/ 检索字符串）
+方法三：
+&gt; sysctl -w net.ipv4.ip_forward=1
+</code></pre>
+<h2 id="重启网卡"><a href="#重启网卡" class="headerlink" title="重启网卡"></a>重启网卡</h2><pre><code>&gt; systemctl restart network
+或
+&gt; service network-manager restart
+
+###Kali Linux (Debain)###
+&gt; service networking restart
+
+###CentOS 8###
+&gt; nmcli c reload
+</code></pre>
 <h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="版本相关"><a href="#版本相关" class="headerlink" title="版本相关"></a>版本相关</h2><p>mysql版本&lt;5.0没有information_schema数据库</p>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>show databases;</p>
+<h2 id="常用命令-1"><a href="#常用命令-1" class="headerlink" title="常用命令"></a>常用命令</h2><p>show databases;</p>
 <p>use information_schema;</p>
 <p>use mysql;        //切换数据库</p>
 <p>show tables;</p>
@@ -953,7 +1031,7 @@ dvwa
 <p>–check-tor            //检查tor是否正常使用</p>
 <p>最后加 &gt; 1.txt    //将显示结果导出为1.txt</p>
 <hr>
-<h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><h2 id="常用命令-1"><a href="#常用命令-1" class="headerlink" title="常用命令"></a>常用命令</h2><p><strong>新建用户 添加至管理员组</strong></p>
+<h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><h2 id="常用命令-2"><a href="#常用命令-2" class="headerlink" title="常用命令"></a>常用命令</h2><p><strong>新建用户 添加至管理员组</strong></p>
 <p>cmd &gt;</p>
 <p>net user  lucy Nihao12! /add        //密码要设复杂点，避免无回显的情况下因密码复杂度策略创建失败</p>
 <p>net localgroup administrators lucy /add</p>
